@@ -14,9 +14,9 @@ var chatClientAgentRunOptions = new ChatClientAgentRunOptions( new ChatOptions
 });
 var agent = new ChatClientAgent(client);
 var response = await agent.RunAsync("What is the Capital of Australia?", options:chatClientAgentRunOptions);
-Utils.WriteLineSuccess(response.Text);
-Utils.Separator();
+ConsoleUtils.WriteLineSuccess(response.Text);
+ConsoleUtils.Separator();
 await foreach (AgentRunResponseUpdate update in agent.RunStreamingAsync("How to make soup?", options: chatClientAgentRunOptions))
 {
-    Utils.WriteYellow(update.Text);
+    ConsoleUtils.WriteYellow(update.Text);
 }

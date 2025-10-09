@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroToFirstAgent.GoogleGemini", "ZeroToFirstAgent.GoogleGemini\ZeroToFirstAgent.GoogleGemini.csproj", "{52512860-8453-48AE-B556-1C9921053C9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroToFirstAgent.AzureOpenAi", "ZeroToFirstAgent.AzureOpenAi\ZeroToFirstAgent.AzureOpenAi.csproj", "{4C611F2B-C1D8-433B-A41B-D6BF68B61D2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +34,14 @@ Global
 		{52512860-8453-48AE-B556-1C9921053C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52512860-8453-48AE-B556-1C9921053C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52512860-8453-48AE-B556-1C9921053C9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C611F2B-C1D8-433B-A41B-D6BF68B61D2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C611F2B-C1D8-433B-A41B-D6BF68B61D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C611F2B-C1D8-433B-A41B-D6BF68B61D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C611F2B-C1D8-433B-A41B-D6BF68B61D2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{28AC948C-59E7-41F6-8081-7560FD713725} = {D17806D1-2DBE-4C6A-87C0-FEAED4F8ADF3}
 		{52512860-8453-48AE-B556-1C9921053C9D} = {D17806D1-2DBE-4C6A-87C0-FEAED4F8ADF3}
+		{4C611F2B-C1D8-433B-A41B-D6BF68B61D2F} = {D17806D1-2DBE-4C6A-87C0-FEAED4F8ADF3}
 	EndGlobalSection
 EndGlobal
