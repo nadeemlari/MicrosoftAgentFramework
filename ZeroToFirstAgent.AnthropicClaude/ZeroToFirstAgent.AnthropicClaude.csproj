@@ -11,4 +11,9 @@
       <ProjectReference Include="..\Shared\Shared.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Anthropic.SDK" Version="5.6.0" />
+      <PackageReference Include="Microsoft.Agents.AI" Version="1.0.0-preview.251009.1" />
+    </ItemGroup>
+
 </Project>
