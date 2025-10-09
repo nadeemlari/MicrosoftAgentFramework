@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroToFirstAgent.AnthropicC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{D7241987-03FE-4AA9-A82D-280269FB5EC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroToFirstAgent.GoogleGemini", "ZeroToFirstAgent.GoogleGemini\ZeroToFirstAgent.GoogleGemini.csproj", "{52512860-8453-48AE-B556-1C9921053C9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,8 +28,13 @@ Global
 		{D7241987-03FE-4AA9-A82D-280269FB5EC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7241987-03FE-4AA9-A82D-280269FB5EC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7241987-03FE-4AA9-A82D-280269FB5EC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52512860-8453-48AE-B556-1C9921053C9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52512860-8453-48AE-B556-1C9921053C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52512860-8453-48AE-B556-1C9921053C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52512860-8453-48AE-B556-1C9921053C9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{28AC948C-59E7-41F6-8081-7560FD713725} = {D17806D1-2DBE-4C6A-87C0-FEAED4F8ADF3}
+		{52512860-8453-48AE-B556-1C9921053C9D} = {D17806D1-2DBE-4C6A-87C0-FEAED4F8ADF3}
 	EndGlobalSection
 EndGlobal
