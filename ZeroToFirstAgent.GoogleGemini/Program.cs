@@ -4,7 +4,7 @@ using Microsoft.Agents.AI;
 using Shared;
 
 
-const string apiKey = "";
+const string apiKey = "....";
 const string model = GoogleAIModels.Gemini2Flash;        
 var client = new GenerativeAIChatClient(apiKey, model);
 var agent = new ChatClientAgent(client);
