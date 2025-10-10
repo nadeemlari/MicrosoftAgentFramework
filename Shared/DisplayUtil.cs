@@ -1,6 +1,6 @@
 ﻿namespace Shared;
 
-public static class ConsoleUtils
+public static class DisplayUtil
 {
     public static void WriteLineError(Exception e)
     {
