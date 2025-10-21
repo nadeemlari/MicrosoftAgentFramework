@@ -2,11 +2,11 @@
 using Anthropic.SDK.Constants;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
+using MicrosoftAgentFramework.Utilities;
 using Shared;
 
-const string apiKey = "...";
 const string model = AnthropicModels.Claude3Haiku;
-var client = new AnthropicClient(apiKey).Messages.AsBuilder().Build();
+var client = AIChatClientProvider.GetNonOpenAIChatClient(LlmNonOpenAiProviders.Anthropic, model);
 var chatClientAgentRunOptions = new ChatClientAgentRunOptions( new ChatOptions
 {
     ModelId = model,

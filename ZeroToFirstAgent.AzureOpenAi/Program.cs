@@ -13,7 +13,7 @@ var response = await agent.RunAsync("What is the Capital of France?");
 DisplayUtil.Separator();
 DisplayUtil.WriteLineSuccess(response.Text);
 DisplayUtil.Separator();
-await foreach (AgentRunResponseUpdate update in agent.RunStreamingAsync("How to make soup?"))
+await foreach (var update in agent.RunStreamingAsync("How to make soup?"))
 {
     DisplayUtil.WriteYellow(update.Text);
 }
