@@ -1,5 +1,4 @@
-﻿using Anthropic.SDK;
-using Anthropic.SDK.Constants;
+﻿using Anthropic.SDK.Constants;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using MicrosoftAgentFramework.Utilities;

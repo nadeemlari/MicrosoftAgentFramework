@@ -1,14 +1,10 @@
-﻿
-using Azure.AI.OpenAI;
-using Azure.Identity;
-using Microsoft.Agents.AI;
+﻿using MicrosoftAgentFramework.Utilities;
 using OpenAI;
 using Shared;
 
-const string endpoint = "https://nad-openai-azure.openai.azure.com/";
 const string model = "GPT-4.1-mini";
-var client = new AzureOpenAIClient(new Uri(endpoint),new AzureCliCredential());
-var agent= client.GetChatClient(model).CreateAIAgent();
+var client = AIChatClientProvider.GetOpenAIChatClient(LlmOpenAiProviders.AzureOpenAI, model);
+var agent= client.CreateAIAgent();
 var response = await agent.RunAsync("What is the Capital of France?");
 DisplayUtil.Separator();
 DisplayUtil.WriteLineSuccess(response.Text);
