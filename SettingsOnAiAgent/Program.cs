@@ -12,7 +12,8 @@ using Shared;
 
 #pragma warning disable OPENAI001
 
-const string model = "openai/gpt-4.1-mini"; var client = AIChatClientProvider.GetOpenAIChatClient(LlmOpenAiProviders.OpenRouter, model);
+const string model = "deepseek/deepseek-v3.2-exp"; 
+var client = AIChatClientProvider.GetOpenAIChatClient(LlmOpenAiProviders.OpenRouter, model);
 var noSettingAgent = client.CreateAIAgent();
 var agent = client.CreateAIAgent(
     instructions: "You are a cool surfer dude",
@@ -50,10 +51,11 @@ var agentWithSettings = client.CreateAIAgent(
     .UseOpenTelemetry(sourceName)
     .Build();
 
+DisplayUtil.LoadingTask();
 var response = await agentWithSettings.RunAsync("What is the Capital of France?");
 DisplayUtil.Separator();
 DisplayUtil.WriteLineSuccess(response.Text);
-
+DisplayUtil.StopLoading();
 public class MySpecialService
 {
 }

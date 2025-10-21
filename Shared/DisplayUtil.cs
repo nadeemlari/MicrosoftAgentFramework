@@ -2,6 +2,7 @@
 
 public static class DisplayUtil
 {
+    private static bool _loading = true;
     public static void WriteLineError(Exception e)
     {
         WriteLineError(e.ToString());
@@ -95,5 +96,45 @@ public static class DisplayUtil
         Console.WriteLine();
         WriteLine("".PadLeft(Console.WindowWidth, '-'), ConsoleColor.Gray);
         Console.WriteLine();
+    }
+    
+    public static void StopLoading()
+    {
+        _loading = false;
+        
+    }
+    public static void LoadingTask()
+    {
+        Task.Run(async () =>
+        {
+            string[] spinner = ["|", "/", "-", "\\"];
+            var barLength = Console.WindowWidth-4;
+            var count = 0;
+            while (_loading)
+            {
+                var progress = (count % (barLength + 1));
+                var bar = new string('█', progress) + new string(' ', barLength - progress);
+                var spin = spinner[count % spinner.Length];
+
+                // Save current color
+                var prevColor = Console.ForegroundColor;
+
+                // Write spinner and label in default color
+                Console.Write($"\r{spin} [");
+
+                // Set color for progress bar
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write(bar);
+
+                // Restore color and close bracket
+                Console.ForegroundColor = prevColor;
+                Console.Write("]");
+
+                await Task.Delay(100);
+                count++;
+            }
+
+            Console.Write("\r" + new string(' ', 120) + "\r"); // Clear the line
+        });
     }
 }
