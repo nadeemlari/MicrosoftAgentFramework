@@ -30,7 +30,7 @@ public static class AIChatClientProvider
                     
                     return client.GetChatClient(model);
                 }
-            case LlmOpenAiProviders.OpenRoute:
+            case LlmOpenAiProviders.OpenRouter:
             {
                 var apiKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY") ?? throw new InvalidOperationException("Please set the OPENROUTER_API_KEY environment variable.");
                 var client = new OpenAIClient(new ApiKeyCredential(apiKey), new OpenAIClientOptions

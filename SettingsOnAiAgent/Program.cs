@@ -1,10 +1,9 @@
-﻿using Azure.AI.OpenAI;
-using Azure.Identity;
-using Microsoft.Agents.AI;
+﻿using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MicrosoftAgentFramework.Utilities;
 using OpenAI;
 using OpenAI.Chat;
 using OpenTelemetry;
@@ -13,11 +12,9 @@ using Shared;
 
 #pragma warning disable OPENAI001
 
-const string endpoint = "https://nad-openai-azure.openai.azure.com/";
-const string model = "GPT-4.1-mini";
-var client = new AzureOpenAIClient(new Uri(endpoint), new AzureCliCredential());
-var noSettingAgent = client.GetChatClient(model).CreateAIAgent();
-var agent = client.GetChatClient(model).CreateAIAgent(
+const string model = "openai/gpt-4.1-mini"; var client = AIChatClientProvider.GetOpenAIChatClient(LlmOpenAiProviders.OpenRouter, model);
+var noSettingAgent = client.CreateAIAgent();
+var agent = client.CreateAIAgent(
     instructions: "You are a cool surfer dude",
     tools: []
 );
@@ -31,7 +28,7 @@ using var traceProvider = Sdk.CreateTracerProviderBuilder()
     .AddConsoleExporter()
     .Build();
 
-var agentWithSettings = client.GetChatClient(model).CreateAIAgent(
+var agentWithSettings = client.CreateAIAgent(
         instructions: "Speak like a Pirate",
         name: "My Agent",
         description: "This is a test agent",
