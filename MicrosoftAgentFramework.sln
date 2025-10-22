@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolCalling.Basics", "ToolC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolCalling.Advanced", "ToolCalling.Advanced\ToolCalling.Advanced.csproj", "{7538299A-79A6-4957-BB54-C7DF4452C3F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.Concurrent", "Workflow.Concurrent\Workflow.Concurrent.csproj", "{BA07AD1E-4595-47AC-B7E4-4317A3E287D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +105,10 @@ Global
 		{7538299A-79A6-4957-BB54-C7DF4452C3F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7538299A-79A6-4957-BB54-C7DF4452C3F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7538299A-79A6-4957-BB54-C7DF4452C3F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA07AD1E-4595-47AC-B7E4-4317A3E287D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA07AD1E-4595-47AC-B7E4-4317A3E287D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA07AD1E-4595-47AC-B7E4-4317A3E287D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA07AD1E-4595-47AC-B7E4-4317A3E287D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -121,5 +127,6 @@ Global
 		{05C42AAC-090D-463F-B823-37C73786B395} = {51E0C08F-6126-4963-8D2C-D3EB0E339A9F}
 		{5CAFBAA4-7675-4608-9451-473031D48903} = {F4BED57B-3CC6-426E-BD3C-08DAB837776C}
 		{7538299A-79A6-4957-BB54-C7DF4452C3F0} = {F4BED57B-3CC6-426E-BD3C-08DAB837776C}
+		{BA07AD1E-4595-47AC-B7E4-4317A3E287D8} = {51E0C08F-6126-4963-8D2C-D3EB0E339A9F}
 	EndGlobalSection
 EndGlobal
