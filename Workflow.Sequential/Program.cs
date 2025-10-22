@@ -7,8 +7,9 @@ using Shared;
 // const string model = "deepseek/deepseek-v3.2-exp";
 
 //const string model = "qwen/qwen3-32b";
-const string model = "openai/gpt-4o-mini";
-var client = AIChatClientProvider.GetOpenAIChatClient(LlmOpenAiProviders.OpenRouter, model);
+const string model = "provider-3/gpt-4o-mini";
+
+var client = AIChatClientProvider.GetOpenAIChatClient(LlmOpenAiProviders.A4F, model);
 var summaryAgent = client.CreateAIAgent(name: "SummaryAgent", instructions: "Summarize the text you are given to max 40 words");
 var translationAgent = client.CreateAIAgent(name: "TranslationAgent", instructions: "Translate summarize text to Hindi");
 var workflowAgent = await AgentWorkflowBuilder.BuildSequential(summaryAgent, translationAgent).AsAgentAsync();

@@ -7,6 +7,7 @@ public enum LlmOpenAiProviders
     AzureOpenAI,
     OpenAI,
     OpenRouter,
+    A4F
 }
 
 public enum LlmNonOpenAiProviders

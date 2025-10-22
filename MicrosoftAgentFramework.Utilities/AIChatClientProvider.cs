@@ -39,6 +39,15 @@ public static class AIChatClientProvider
                 });
                 return client.GetChatClient(model);
             }
+            case LlmOpenAiProviders.A4F:
+            {
+                var apiKey = Environment.GetEnvironmentVariable("A4F_API_KEY") ?? throw new InvalidOperationException("Please set the OPENROUTER_API_KEY environment variable.");
+                var client = new OpenAIClient(new ApiKeyCredential(apiKey), new OpenAIClientOptions
+                {
+                    Endpoint = new Uri("https://api.a4f.co/v1")
+                });
+                return client.GetChatClient(model);
+            }
             default:
                 throw new NotSupportedException($"The provider {provider} is not supported.");
         }
