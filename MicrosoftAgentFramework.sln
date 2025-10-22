@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WriterReviewerWorkflow", "W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolCalling.Basics", "ToolCalling.Basics\ToolCalling.Basics.csproj", "{5CAFBAA4-7675-4608-9451-473031D48903}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolCalling.Advanced", "ToolCalling.Advanced\ToolCalling.Advanced.csproj", "{7538299A-79A6-4957-BB54-C7DF4452C3F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{5CAFBAA4-7675-4608-9451-473031D48903}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CAFBAA4-7675-4608-9451-473031D48903}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CAFBAA4-7675-4608-9451-473031D48903}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7538299A-79A6-4957-BB54-C7DF4452C3F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7538299A-79A6-4957-BB54-C7DF4452C3F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7538299A-79A6-4957-BB54-C7DF4452C3F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7538299A-79A6-4957-BB54-C7DF4452C3F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,5 +120,6 @@ Global
 		{1AC053F2-0791-458E-AF45-40F29EEC9511} = {D17806D1-2DBE-4C6A-87C0-FEAED4F8ADF3}
 		{05C42AAC-090D-463F-B823-37C73786B395} = {51E0C08F-6126-4963-8D2C-D3EB0E339A9F}
 		{5CAFBAA4-7675-4608-9451-473031D48903} = {F4BED57B-3CC6-426E-BD3C-08DAB837776C}
+		{7538299A-79A6-4957-BB54-C7DF4452C3F0} = {F4BED57B-3CC6-426E-BD3C-08DAB837776C}
 	EndGlobalSection
 EndGlobal
