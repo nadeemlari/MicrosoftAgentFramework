@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.Concurrent", "Work
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.Sequential", "Workflow.Sequential\Workflow.Sequential.csproj", "{5287D31E-73C9-4369-AB9C-DE93BA78A29E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.Handoff", "Workflow.Handoff\Workflow.Handoff.csproj", "{1BA26F25-5A28-4ADB-AA40-6082987BBDBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,10 @@ Global
 		{5287D31E-73C9-4369-AB9C-DE93BA78A29E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5287D31E-73C9-4369-AB9C-DE93BA78A29E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5287D31E-73C9-4369-AB9C-DE93BA78A29E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BA26F25-5A28-4ADB-AA40-6082987BBDBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BA26F25-5A28-4ADB-AA40-6082987BBDBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BA26F25-5A28-4ADB-AA40-6082987BBDBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BA26F25-5A28-4ADB-AA40-6082987BBDBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -135,5 +141,6 @@ Global
 		{7538299A-79A6-4957-BB54-C7DF4452C3F0} = {F4BED57B-3CC6-426E-BD3C-08DAB837776C}
 		{BA07AD1E-4595-47AC-B7E4-4317A3E287D8} = {51E0C08F-6126-4963-8D2C-D3EB0E339A9F}
 		{5287D31E-73C9-4369-AB9C-DE93BA78A29E} = {51E0C08F-6126-4963-8D2C-D3EB0E339A9F}
+		{1BA26F25-5A28-4ADB-AA40-6082987BBDBC} = {51E0C08F-6126-4963-8D2C-D3EB0E339A9F}
 	EndGlobalSection
 EndGlobal
