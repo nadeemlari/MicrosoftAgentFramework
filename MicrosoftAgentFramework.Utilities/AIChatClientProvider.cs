@@ -15,24 +15,27 @@ public static class AIChatClientProvider
 {
     public static ChatClient GetOpenAIChatClient(LlmOpenAiProviders provider, string model)
     {
-        switch(provider)
+        switch (provider)
         {
             case LlmOpenAiProviders.AzureOpenAI:
-                {
-                    const string endpoint = "https://nad-openai-azure.openai.azure.com/";
-                    var client = new AzureOpenAIClient(new Uri(endpoint), new AzureCliCredential());
-                    return client.GetChatClient(model);
-                }
+            {
+                const string endpoint = "https://nad-openai-azure.openai.azure.com/";
+                var client = new AzureOpenAIClient(new Uri(endpoint), new AzureCliCredential());
+                return client.GetChatClient(model);
+            }
             case LlmOpenAiProviders.OpenAI:
-                {
-                    var apiKey = Environment.GetEnvironmentVariable("OpenAI__ApiKey") ?? throw new InvalidOperationException("Please set the OpenAI__ApiKey environment variable.");
-                    var client = new OpenAIClient(new ApiKeyCredential(apiKey));
-                    
-                    return client.GetChatClient(model);
-                }
+            {
+                var apiKey = Environment.GetEnvironmentVariable("OpenAI__ApiKey") ??
+                             throw new InvalidOperationException("Please set the OpenAI__ApiKey environment variable.");
+                var client = new OpenAIClient(new ApiKeyCredential(apiKey));
+
+                return client.GetChatClient(model);
+            }
             case LlmOpenAiProviders.OpenRouter:
             {
-                var apiKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY") ?? throw new InvalidOperationException("Please set the OPENROUTER_API_KEY environment variable.");
+                var apiKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY") ??
+                             throw new InvalidOperationException(
+                                 "Please set the OPENROUTER_API_KEY environment variable.");
                 var client = new OpenAIClient(new ApiKeyCredential(apiKey), new OpenAIClientOptions
                 {
                     Endpoint = new Uri("https://openrouter.ai/api/v1")
@@ -41,7 +44,9 @@ public static class AIChatClientProvider
             }
             case LlmOpenAiProviders.A4F:
             {
-                var apiKey = Environment.GetEnvironmentVariable("A4F_API_KEY") ?? throw new InvalidOperationException("Please set the OPENROUTER_API_KEY environment variable.");
+                var apiKey = Environment.GetEnvironmentVariable("A4F_API_KEY") ??
+                             throw new InvalidOperationException(
+                                 "Please set the OPENROUTER_API_KEY environment variable.");
                 var client = new OpenAIClient(new ApiKeyCredential(apiKey), new OpenAIClientOptions
                 {
                     Endpoint = new Uri("https://api.a4f.co/v1")
@@ -52,20 +57,25 @@ public static class AIChatClientProvider
                 throw new NotSupportedException($"The provider {provider} is not supported.");
         }
     }
+
     public static IChatClient GetNonOpenAIChatClient(LlmNonOpenAiProviders provider, string model)
     {
-        switch(provider)
+        switch (provider)
         {
             case LlmNonOpenAiProviders.Anthropic:
             {
-                var apiKey = Environment.GetEnvironmentVariable("ANTHROPIC_API_KEY") ?? throw new InvalidOperationException("Please set the OPENROUTER_API_KEY environment variable.");
+                var apiKey = Environment.GetEnvironmentVariable("ANTHROPIC_API_KEY") ??
+                             throw new InvalidOperationException(
+                                 "Please set the OPENROUTER_API_KEY environment variable.");
                 var client = new AnthropicClient(apiKey).Messages.AsBuilder().Build();
                 return client;
             }
 
             case LlmNonOpenAiProviders.Gemini:
             {
-                var apiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY") ?? throw new InvalidOperationException("Please set the OPENROUTER_API_KEY environment variable.");
+                var apiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY") ??
+                             throw new InvalidOperationException(
+                                 "Please set the OPENROUTER_API_KEY environment variable.");
                 var client = new GenerativeAIChatClient(apiKey, model);
                 return client;
             }
@@ -73,5 +83,15 @@ public static class AIChatClientProvider
                 throw new NotSupportedException($"The provider {provider} is not supported.");
         }
     }
+
+    public static IEmbeddingGenerator<string, Embedding<float>> GetAzureOpenAiEmbeddingClient(string deploymentName)
+    {
+        const string endpoint = "https://nad-openai-azure.openai.azure.com/";
+        var client = new AzureOpenAIClient(new Uri(endpoint), new AzureCliCredential())
+            .GetEmbeddingClient(deploymentName)
+            .AsIEmbeddingGenerator();
+        return client;
+    }
     
 }
+
