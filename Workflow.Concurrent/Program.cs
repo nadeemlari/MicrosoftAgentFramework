@@ -6,7 +6,7 @@ using Shared;
 // const string model = "openai/gpt-4.1-mini";
 const string model = "deepseek/deepseek-v3.2-exp";
 var client =
-    AIChatClientProvider.GetOpenAIChatClient(LlmOpenAiProviders.OpenRouter, model);
+    AIChatClient.GetOpenAI(OpenAI_LLM_Providers.OpenRouter, model);
 var legalAgent = client.CreateAIAgent(
     instructions: "You are a legal agent that need to evaluate if a text is legal (use max 200 chars)",
     name: "LegalAgent"

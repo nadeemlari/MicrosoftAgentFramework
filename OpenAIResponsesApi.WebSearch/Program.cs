@@ -6,7 +6,7 @@ using Shared.Extensions;
 
 const string model = "openai/gpt-4.1";
 // const string model = "gpt-4.1";
-var resClient = AIResponseClientProvider.GetAIResponseClient(LlmOpenAiProviders.OpenRouter, model);
+var resClient = AIResponseClientProvider.GetAIResponseClient(OpenAI_LLM_Providers.OpenRouter, model);
 
 var agent = resClient.CreateAIAgent(
     instructions: "You are a Space News AI Reporter",

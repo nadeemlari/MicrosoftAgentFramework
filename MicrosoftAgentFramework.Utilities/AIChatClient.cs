@@ -11,19 +11,19 @@ using OpenAI.Chat;
 
 namespace MicrosoftAgentFramework.Utilities;
 
-public static class AIChatClientProvider
+public static class AIChatClient
 {
-    public static ChatClient GetOpenAIChatClient(LlmOpenAiProviders provider, string model)
+    public static ChatClient GetOpenAI(OpenAI_LLM_Providers provider, string model)
     {
         switch (provider)
         {
-            case LlmOpenAiProviders.AzureOpenAI:
+            case OpenAI_LLM_Providers.AzureOpenAI:
             {
                 const string endpoint = "https://nad-openai-azure.openai.azure.com/";
                 var client = new AzureOpenAIClient(new Uri(endpoint), new AzureCliCredential());
                 return client.GetChatClient(model);
             }
-            case LlmOpenAiProviders.OpenAI:
+            case OpenAI_LLM_Providers.OpenAI:
             {
                 var apiKey = Environment.GetEnvironmentVariable("OpenAI__ApiKey") ??
                              throw new InvalidOperationException("Please set the OpenAI__ApiKey environment variable.");
@@ -31,7 +31,7 @@ public static class AIChatClientProvider
 
                 return client.GetChatClient(model);
             }
-            case LlmOpenAiProviders.OpenRouter:
+            case OpenAI_LLM_Providers.OpenRouter:
             {
                 var apiKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY") ??
                              throw new InvalidOperationException(
@@ -42,7 +42,7 @@ public static class AIChatClientProvider
                 });
                 return client.GetChatClient(model);
             }
-            case LlmOpenAiProviders.A4F:
+            case OpenAI_LLM_Providers.A4F:
             {
                 var apiKey = Environment.GetEnvironmentVariable("A4F_API_KEY") ??
                              throw new InvalidOperationException(
@@ -58,11 +58,11 @@ public static class AIChatClientProvider
         }
     }
 
-    public static IChatClient GetNonOpenAIChatClient(LlmNonOpenAiProviders provider, string model)
+    public static IChatClient GetNonOpenAI(NonOpenAiProviders provider, string model)
     {
         switch (provider)
         {
-            case LlmNonOpenAiProviders.Anthropic:
+            case NonOpenAiProviders.Anthropic:
             {
                 var apiKey = Environment.GetEnvironmentVariable("ANTHROPIC_API_KEY") ??
                              throw new InvalidOperationException(
@@ -71,7 +71,7 @@ public static class AIChatClientProvider
                 return client;
             }
 
-            case LlmNonOpenAiProviders.Gemini:
+            case NonOpenAiProviders.Gemini:
             {
                 var apiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY") ??
                              throw new InvalidOperationException(

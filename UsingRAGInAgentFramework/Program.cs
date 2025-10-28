@@ -7,7 +7,7 @@ using UsingRAGInAgentFramework.Models;
 var jsonWithMovies = await File.ReadAllTextAsync("made_up_movies.json");
 var movies = JsonSerializer.Deserialize<List<Movie>>(jsonWithMovies);
 DisplayUtil.LoadingTask();
-var client = AIChatClientProvider.GetAzureOpenAiEmbeddingClient("text-embedding-ada-002");
+var client = AIChatClient.GetAzureOpenAiEmbeddingClient("text-embedding-ada-002");
 var store = new InMemoryVectorStore(new InMemoryVectorStoreOptions
 {
   EmbeddingGenerator = client

@@ -2,7 +2,7 @@
 
 namespace MicrosoftAgentFramework.Utilities;
 
-public enum LlmOpenAiProviders
+public enum OpenAI_LLM_Providers
 {
     AzureOpenAI,
     OpenAI,
@@ -10,7 +10,7 @@ public enum LlmOpenAiProviders
     A4F
 }
 
-public enum LlmNonOpenAiProviders
+public enum NonOpenAiProviders
 {
     Anthropic,
     Gemini

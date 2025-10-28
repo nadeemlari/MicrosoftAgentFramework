@@ -13,7 +13,7 @@ using Shared;
 #pragma warning disable OPENAI001
 
 const string model = "deepseek/deepseek-v3.2-exp"; 
-var client = AIChatClientProvider.GetOpenAIChatClient(LlmOpenAiProviders.OpenRouter, model);
+var client = AIChatClient.GetOpenAI(OpenAI_LLM_Providers.OpenRouter, model);
 var noSettingAgent = client.CreateAIAgent();
 var agent = client.CreateAIAgent(
     instructions: "You are a cool surfer dude",

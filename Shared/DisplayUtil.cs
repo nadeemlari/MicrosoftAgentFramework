@@ -17,6 +17,16 @@ public static class DisplayUtil
     {
         WriteLine(text, ConsoleColor.Yellow);
     }
+    
+    public static void WriteLineDarkGray(string text)
+    {
+        WriteLine(text, ConsoleColor.DarkGray);
+    }
+
+    public static void WriteLineGreen(string text)
+    {
+        WriteLine(text, ConsoleColor.Green);
+    }
 
     public static void WriteLineWarning(string text)
     {

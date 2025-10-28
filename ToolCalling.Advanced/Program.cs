@@ -11,7 +11,7 @@ using ToolCalling.Advanced.Tools;
 
 // const string model = "openai/gpt-4.1-mini";
 const string model = "deepseek/deepseek-v3.2-exp";
-var client = AIChatClientProvider.GetOpenAIChatClient(LlmOpenAiProviders.OpenRouter, model);
+var client = AIChatClient.GetOpenAI(OpenAI_LLM_Providers.OpenRouter, model);
 
 var target = new FileSystemTools();
 var tools = typeof(FileSystemTools).GetMethods(BindingFlags.Public | BindingFlags.Instance)

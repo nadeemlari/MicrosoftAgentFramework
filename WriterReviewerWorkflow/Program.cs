@@ -8,7 +8,7 @@ using Shared;
 // const string model = "openai/gpt-4.1-mini";
 const string model = "deepseek/deepseek-v3.2-exp";
 
-var client = AIChatClientProvider.GetOpenAIChatClient(LlmOpenAiProviders.OpenRouter, model);
+var client = AIChatClient.GetOpenAI(OpenAI_LLM_Providers.OpenRouter, model);
 var writerAgent  = client.CreateAIAgent(
         instructions: "Write stories that are engaging and creative.",
         name: "Writer Agent",

@@ -5,7 +5,7 @@ using Shared;
 
 
 const string model = GoogleAIModels.Gemini2Flash;        
-var client = AIChatClientProvider.GetNonOpenAIChatClient( LlmNonOpenAiProviders.Gemini, model);
+var client = AIChatClient.GetNonOpenAI( NonOpenAiProviders.Gemini, model);
 var agent = new ChatClientAgent(client);
 var response = await agent.RunAsync("What is the Capital of Australia?");
 DisplayUtil.Separator();
