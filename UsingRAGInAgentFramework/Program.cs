@@ -15,7 +15,7 @@ var store = new InMemoryVectorStore(new InMemoryVectorStoreOptions
 
 var collection = store.GetCollection<Guid, MovieVectorStoreRecord>("movies");
 await collection.EnsureCollectionExistsAsync();
-int counter = 0;
+var counter = 0;
 if (movies != null)
   foreach (var movie in movies)
   {
