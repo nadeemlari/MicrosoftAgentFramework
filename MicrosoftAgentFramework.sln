@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenAIResponsesApi.WebSearc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenAIResponsesApi.CodeInterpreter", "OpenAIResponsesApi.CodeInterpreter\OpenAIResponsesApi.CodeInterpreter.csproj", "{89B1713C-8641-4CF9-9A86-0E0F6FBCE6B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenAIResponsesApi.ReasoningSummary", "OpenAIResponsesApi.ReasoningSummary\OpenAIResponsesApi.ReasoningSummary.csproj", "{C24E4D09-9886-4F09-9983-BD95837EBCDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +145,10 @@ Global
 		{89B1713C-8641-4CF9-9A86-0E0F6FBCE6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89B1713C-8641-4CF9-9A86-0E0F6FBCE6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89B1713C-8641-4CF9-9A86-0E0F6FBCE6B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C24E4D09-9886-4F09-9983-BD95837EBCDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C24E4D09-9886-4F09-9983-BD95837EBCDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C24E4D09-9886-4F09-9983-BD95837EBCDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C24E4D09-9886-4F09-9983-BD95837EBCDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -167,5 +173,6 @@ Global
 		{5A0F7B10-45D1-4367-984D-AAF37FA1E9EE} = {2360D05B-B704-42C6-BAF7-752135C86118}
 		{703B8089-560D-40AA-A073-054473BA1177} = {06E63B0C-1B3E-4299-AE13-BE5BC23A30C0}
 		{89B1713C-8641-4CF9-9A86-0E0F6FBCE6B7} = {06E63B0C-1B3E-4299-AE13-BE5BC23A30C0}
+		{C24E4D09-9886-4F09-9983-BD95837EBCDB} = {06E63B0C-1B3E-4299-AE13-BE5BC23A30C0}
 	EndGlobalSection
 EndGlobal
