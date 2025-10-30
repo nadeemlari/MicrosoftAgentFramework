@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.0.11116.177 d18.0
+VisualStudioVersion = 18.0.11116.177
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicrosoftAgentFramework.Utilities", "MicrosoftAgentFramework.Utilities\MicrosoftAgentFramework.Utilities.csproj", "{26DAC226-E651-4A46-A46C-A971F581E282}"
 EndProject
@@ -60,6 +60,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenAIResponsesApi.ReasoningSummary", "OpenAIResponsesApi.ReasoningSummary\OpenAIResponsesApi.ReasoningSummary.csproj", "{C24E4D09-9886-4F09-9983-BD95837EBCDB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenAIResponsesApi.SpecialModels", "OpenAIResponsesApi.SpecialModels\OpenAIResponsesApi.SpecialModels.csproj", "{2E10D377-1AD1-47B3-876C-B0386994E0D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aspire", "Aspire", "{F4E4A198-02B8-40F3-AAAF-B88540560097}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chatbot", "Chatbot", "{22D6752A-EA1A-4B76-8125-77AC27A02149}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatApp", "ChatApp\ChatApp.csproj", "{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -155,6 +161,10 @@ Global
 		{2E10D377-1AD1-47B3-876C-B0386994E0D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E10D377-1AD1-47B3-876C-B0386994E0D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E10D377-1AD1-47B3-876C-B0386994E0D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -181,5 +191,6 @@ Global
 		{89B1713C-8641-4CF9-9A86-0E0F6FBCE6B7} = {06E63B0C-1B3E-4299-AE13-BE5BC23A30C0}
 		{C24E4D09-9886-4F09-9983-BD95837EBCDB} = {06E63B0C-1B3E-4299-AE13-BE5BC23A30C0}
 		{2E10D377-1AD1-47B3-876C-B0386994E0D9} = {06E63B0C-1B3E-4299-AE13-BE5BC23A30C0}
+		{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75} = {22D6752A-EA1A-4B76-8125-77AC27A02149}
 	EndGlobalSection
 EndGlobal
