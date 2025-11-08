@@ -1,6 +1,6 @@
 ﻿namespace WebCrawler;
 
-public class TextChunker
+public static class TextChunker
 {
     public static List<string> ChunkText(string text, int chunkSize = 1000, int overlap = 200)
     {

@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.VectorData;
-using Microsoft.SemanticKernel.Connectors.InMemory;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
+using Microsoft.SemanticKernel.Connectors.Qdrant;
 using Microsoft.SemanticKernel.Embeddings;
+using Qdrant.Client;
 using Shared;
 
 
@@ -12,14 +13,12 @@ namespace WebCrawler;
 
 public class WebIndexingPipeline(string openAiApiKey)
 {
-    
     private readonly ITextEmbeddingGenerationService _embeddingService = new OpenAITextEmbeddingGenerationService(
         modelId: "text-embedding-3-small",
         apiKey: openAiApiKey
     );
     
-    private readonly VectorStore _vectorStore = new InMemoryVectorStore();
-
+    private readonly VectorStore _vectorStore = new QdrantVectorStore(new QdrantClient("qdrant.pub.nadeemlari.in"), ownsClient: true);
 
     public async Task CrawlAndIndexSiteAsync(string siteUrl, CancellationToken cancellationToken = default)
     {
@@ -34,13 +33,14 @@ public class WebIndexingPipeline(string openAiApiKey)
         Console.WriteLine($"Crawled {crawledPages.Count} pages");
         
         // 2. Get or create collection
-        var collection = _vectorStore.GetCollection<string, WebPageChunk>("web_content");
+        var collection = _vectorStore.GetCollection<ulong, WebPageChunk>("solenis-web_content");
         await collection.EnsureCollectionExistsAsync(cancellationToken);
         
         // 3. Process pages in batches
         var allRecords = new List<WebPageChunk>();
         var pageCount = 0;
         DisplayUtil.Separator();
+        
         foreach (var (url, title, content) in crawledPages)
         {
             pageCount++;
@@ -61,18 +61,18 @@ public class WebIndexingPipeline(string openAiApiKey)
             {
                 try
                 {
-                    //var embedding = await _embeddingService.GenerateEmbeddingAsync(
-                      //  chunks[i], 
-                        //cancellationToken: cancellationToken);
+                    var embedding = await _embeddingService.GenerateEmbeddingAsync(
+                        chunks[i], 
+                        cancellationToken: cancellationToken);
                     
                     var record = new WebPageChunk
                     {
-                        Id = $"{Guid.NewGuid()}",
+                        Id = Guid.NewGuid(),
                         Url = url,
                         Content = chunks[i],
                         Title = title,
                         CrawledAt = DateTime.UtcNow,
-                        //ContentEmbedding = embedding
+                        ContentEmbedding = embedding
                     };
                     
                     allRecords.Add(record);
@@ -81,12 +81,13 @@ public class WebIndexingPipeline(string openAiApiKey)
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"  Error processing chunk {i}: {ex.Message}");
+                    Console.WriteLine($"Error processing chunk {i}: {ex.Message}");
                 }
             }
         }
         
-        // Upsert remaining records
+        
+        Console.ReadLine();
         if (allRecords.Count != 0)
         {
             DisplayUtil.Separator();

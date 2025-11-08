@@ -8,7 +8,7 @@ public class WebPageChunk
     private const string VectorDistanceFunction = DistanceFunction.CosineDistance;
     
     [VectorStoreKey]
-    public required string Id { get; set; }
+    public required Guid Id { get; set; }
     
     [VectorStoreData]
     public required string Url { get; set; }
