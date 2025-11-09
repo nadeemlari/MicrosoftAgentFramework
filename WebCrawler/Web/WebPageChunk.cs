@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.VectorData;
 
-namespace WebCrawler.Web;
+namespace Crawler.Web;
 
 public class WebPageChunk
 {

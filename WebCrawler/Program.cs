@@ -1,4 +1,4 @@
-﻿using WebCrawler.Web;
+﻿using Crawler.Web;
 
 var apiKey = Environment.GetEnvironmentVariable("OpenAI__ApiKey")??"your-api-key-here";
 var cancellationTokenSource = new CancellationTokenSource();

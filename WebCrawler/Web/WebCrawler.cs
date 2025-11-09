@@ -2,7 +2,7 @@
 using HtmlAgilityPack;
 using Shared;
 
-namespace WebCrawler.Web;
+namespace Crawler.Web;
 
 public class WebCrawler
 {

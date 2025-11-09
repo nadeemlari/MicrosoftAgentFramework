@@ -8,7 +8,7 @@ using Shared;
 #pragma warning disable SKEXP0050
 #pragma warning disable CS0618 // Type or member is obsolete
 
-namespace WebCrawler.Web;
+namespace Crawler.Web;
 
 public class WebIndexingPipeline(string openAiApiKey)
 {
@@ -25,7 +25,7 @@ public class WebIndexingPipeline(string openAiApiKey)
         DisplayUtil.Separator();
        
         // Initialize crawler for this site
-        var crawler = new Web.WebCrawler(siteUrl);
+        var crawler = new Crawler.Web.WebCrawler(siteUrl);
         
         // 1. Crawl the entire site
         var crawledPages = await crawler.CrawlSiteAsync();
