@@ -2,7 +2,7 @@
 using HtmlAgilityPack;
 using Shared;
 
-namespace WebCrawler;
+namespace WebCrawler.Web;
 
 public class WebCrawler
 {
@@ -10,7 +10,7 @@ public class WebCrawler
     private readonly ConcurrentDictionary<string, bool> _visitedUrls;
     private readonly ConcurrentBag<(string Url, string Title, string Content)> _crawledPages;
     private readonly string _baseUrl;
-
+   
     public WebCrawler(string baseUrl)
     {
         _httpClient = new HttpClient
@@ -57,13 +57,14 @@ public class WebCrawler
 
             // Store the crawled page
             _crawledPages.Add((url, title, content));
-
+            
             // Extract and follow links
             var links = ExtractLinks(htmlDoc, url);
 
             foreach(var link in links.Where(link => ShouldCrawl(link)))
             {
                 await CrawlPageRecursiveAsync(link, depth + 1);
+                
             }
 
             

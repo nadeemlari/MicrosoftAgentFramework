@@ -67,7 +67,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chatbot", "Chatbot", "{22D6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatApp", "ChatApp\ChatApp.csproj", "{4AAD9CAE-B095-3F5F-CF1E-26EE5776EB75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCrawler", "WebCrawler\WebCrawler.csproj", "{156D39DF-987C-4DB2-809E-94DD0379C338}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawler", "WebCrawler\Crawler.csproj", "{156D39DF-987C-4DB2-809E-94DD0379C338}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

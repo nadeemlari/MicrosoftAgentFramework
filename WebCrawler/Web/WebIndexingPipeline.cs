@@ -5,11 +5,10 @@ using Microsoft.SemanticKernel.Embeddings;
 using Qdrant.Client;
 using Shared;
 
-
 #pragma warning disable SKEXP0050
 #pragma warning disable CS0618 // Type or member is obsolete
 
-namespace WebCrawler;
+namespace WebCrawler.Web;
 
 public class WebIndexingPipeline(string openAiApiKey)
 {
@@ -26,14 +25,14 @@ public class WebIndexingPipeline(string openAiApiKey)
         DisplayUtil.Separator();
        
         // Initialize crawler for this site
-        var crawler = new WebCrawler(siteUrl);
+        var crawler = new Web.WebCrawler(siteUrl);
         
         // 1. Crawl the entire site
         var crawledPages = await crawler.CrawlSiteAsync();
         Console.WriteLine($"Crawled {crawledPages.Count} pages");
         
         // 2. Get or create collection
-        var collection = _vectorStore.GetCollection<ulong, WebPageChunk>("solenis-web_content");
+        var collection = _vectorStore.GetCollection<ulong, WebPageChunk>("solenis_web_content");
         await collection.EnsureCollectionExistsAsync(cancellationToken);
         
         // 3. Process pages in batches
@@ -71,7 +70,7 @@ public class WebIndexingPipeline(string openAiApiKey)
                         Url = url,
                         Content = chunks[i],
                         Title = title,
-                        CrawledAt = DateTime.UtcNow,
+                        CrawledAt = DateTimeOffset.Now,
                         ContentEmbedding = embedding
                     };
                     
@@ -87,13 +86,13 @@ public class WebIndexingPipeline(string openAiApiKey)
         }
         
         
-        Console.ReadLine();
+        //Console.ReadLine();
         if (allRecords.Count != 0)
         {
             DisplayUtil.Separator();
-            allRecords.ForEach(async void (r) =>
+            allRecords.ForEach(r =>
             {
-                await collection.UpsertAsync(r, cancellationToken);
+                collection.UpsertAsync(r, cancellationToken).Wait(cancellationToken);
                 DisplayUtil.WriteLineSuccess($"Indexed chunks {r.Title} from {r.Url}");
             }); 
             

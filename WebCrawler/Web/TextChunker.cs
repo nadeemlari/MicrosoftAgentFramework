@@ -1,4 +1,4 @@
-﻿namespace WebCrawler;
+﻿namespace WebCrawler.Web;
 
 public static class TextChunker
 {

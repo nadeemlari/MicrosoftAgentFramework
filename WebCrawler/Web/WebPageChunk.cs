@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.VectorData;
 
-namespace WebCrawler;
+namespace WebCrawler.Web;
 
 public class WebPageChunk
 {
     private const int VectorDimensions = 1536; // 1536 is the default vector size for the OpenAI text-embedding-3-small model
-    private const string VectorDistanceFunction = DistanceFunction.CosineDistance;
+   
     
     [VectorStoreKey]
     public required Guid Id { get; set; }
@@ -20,8 +20,8 @@ public class WebPageChunk
     public required string Title { get; set; }
     
     [VectorStoreData]
-    public DateTime CrawledAt { get; set; }
+    public DateTimeOffset CrawledAt { get; set; }
     
-    [VectorStoreVector(VectorDimensions, DistanceFunction = VectorDistanceFunction)]
+    [VectorStoreVector(VectorDimensions, DistanceFunction = DistanceFunction.CosineSimilarity, IndexKind = IndexKind.Hnsw)]
     public ReadOnlyMemory<float> ContentEmbedding { get; set; }
 }
