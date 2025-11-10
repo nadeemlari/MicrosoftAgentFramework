@@ -5,7 +5,6 @@ namespace RagUtils;
 public class IngestedPdfDocument
 {
     private const int VectorDimensions = 2;
-    //private const string VectorDistanceFunction = DistanceFunction.CosineDistance;
 
     [VectorStoreKey]
     public required Guid Key { get; set; }
