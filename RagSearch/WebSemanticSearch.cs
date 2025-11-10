@@ -7,7 +7,7 @@ using RagUtils;
 
 namespace RagSearch;
 
-public class WebSemanticSearch()
+public class WebSemanticSearch
 {
     
     private  readonly EmbeddingClient _embeddingClient = OpenAIClientProvider.GetOpenAIClient(OpenAI_LLM_Providers.OpenAI).GetEmbeddingClient("text-embedding-3-small");
