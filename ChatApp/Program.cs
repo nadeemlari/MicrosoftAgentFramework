@@ -3,31 +3,25 @@ using Microsoft.Extensions.AI;
 using OpenAI;
 using ChatApp.Components;
 using ChatApp.Services;
-using ChatApp.Services.Ingestion;
+using Qdrant.Client;
+using RagUtils;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
-// You will need to set the endpoint and key to your own values
-// You can do this using Visual Studio's "Manage User Secrets" UI, or on the command line:
-//   cd this-project-directory
-//   dotnet user-secrets set OpenAI:Key YOUR-API-KEY
-
-var openAIClient = new OpenAIClient(
+var openAiClient = new OpenAIClient(
     new ApiKeyCredential(builder.Configuration["OpenAI:Key"] ?? throw new InvalidOperationException("Missing configuration: OpenAI:Key. See the README for details.")));
 
 #pragma warning disable OPENAI001 // GetOpenAIResponseClient(string) is experimental and subject to change or removal in future updates.
-var chatClient = openAIClient.GetOpenAIResponseClient("gpt-4o-mini").AsIChatClient();
+var chatClient = openAiClient.GetOpenAIResponseClient("gpt-4o-mini").AsIChatClient();
 #pragma warning restore OPENAI001
 
-var embeddingGenerator = openAIClient.GetEmbeddingClient("text-embedding-3-small").AsIEmbeddingGenerator();
+var embeddingGenerator = openAiClient.GetEmbeddingClient("text-embedding-3-small").AsIEmbeddingGenerator();
+builder.Services.AddSingleton<QdrantClient>(_ => new QdrantClient("qdrant.pub.nadeemlari.in")); 
+builder.Services.AddQdrantVectorStore();
+builder.Services.AddQdrantCollection<ulong, IngestedPdfDocument>("solenis_pdf_doc_content");
+builder.Services.AddQdrantCollection<ulong, PdfChunk>("solenis_pdf_chunk_content");
 
-var vectorStorePath = Path.Combine(AppContext.BaseDirectory, "vector-store.db");
-var vectorStoreConnectionString = $"Data Source={vectorStorePath}";
-builder.Services.AddSqliteCollection<string, IngestedChunk>("data-chatapp-chunks", vectorStoreConnectionString);
-builder.Services.AddSqliteCollection<string, IngestedDocument>("data-chatapp-documents", vectorStoreConnectionString);
-
-builder.Services.AddScoped<DataIngestor>();
 builder.Services.AddSingleton<SemanticSearch>();
 builder.Services.AddChatClient(chatClient).UseFunctionInvocation().UseLogging();
 builder.Services.AddEmbeddingGenerator(embeddingGenerator);
@@ -49,12 +43,4 @@ app.UseStaticFiles();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-// By default, we ingest PDF files from the /wwwroot/Data directory. You can ingest from
-// other sources by implementing IIngestionSource.
-// Important: ensure that any content you ingest is trusted, as it may be reflected back
-// to users or could be a source of prompt injection risk.
-await DataIngestor.IngestDataAsync(
-    app.Services,
-    new PDFDirectorySource(Path.Combine(builder.Environment.WebRootPath, "Data")));
-
-app.Run();
+await app.RunAsync();
