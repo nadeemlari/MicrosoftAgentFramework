@@ -6,13 +6,6 @@ namespace Crawler.Pdf;
 
 public class PdfIngestor(VectorStoreCollection<ulong, PdfChunk> chunksCollection, VectorStoreCollection<ulong, IngestedPdfDocument> documentsCollection)
 {
-    // public static async Task IngestDataAsync(IServiceProvider services, IIngestionSource source)
-    // {
-    //     using var scope = services.CreateScope();
-    //     var ingestor = scope.ServiceProvider.GetRequiredService<DataIngestor>();
-    //     await ingestor.IngestDataAsync(source);
-    // }
-
     public async Task IngestDataAsync(IIngestionSource source)
     {
         await chunksCollection.EnsureCollectionExistsAsync();
@@ -26,7 +19,6 @@ public class PdfIngestor(VectorStoreCollection<ulong, PdfChunk> chunksCollection
         {
             DisplayUtil.WriteLineInformation($"Removing ingested data for {deletedDocument.DocumentId}");
             await DeleteChunksForDocumentAsync(deletedDocument);
-            //await documentsCollection.DeleteAsync(deletedDocument.Key);
         }
 
         var modifiedDocuments = await source.GetNewOrModifiedDocumentsAsync(documentsForSource);
@@ -47,10 +39,7 @@ public class PdfIngestor(VectorStoreCollection<ulong, PdfChunk> chunksCollection
         {
             var documentId = document.DocumentId;
             var chunksToDelete = await chunksCollection.GetAsync(record => record.DocumentId == documentId, int.MaxValue).ToListAsync();
-            if (chunksToDelete.Count != 0)
-            {
-                //await chunksCollection.DeleteAsync(chunksToDelete.Select(r => r.Key));
-            }
+            
         }
     }
 }
