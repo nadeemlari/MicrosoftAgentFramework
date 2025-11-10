@@ -1,6 +1,5 @@
-﻿using Microsoft.SemanticKernel.Connectors.OpenAI;
-using Microsoft.SemanticKernel.Embeddings;
-using Microsoft.SemanticKernel.Text;
+﻿using Microsoft.SemanticKernel.Text;
+using OpenAI.Embeddings;
 using RagUtils;
 using UglyToad.PdfPig;
 using UglyToad.PdfPig.Content;
@@ -9,7 +8,7 @@ using UglyToad.PdfPig.DocumentLayoutAnalysis.WordExtractor;
 
 namespace Crawler.Pdf;
 
-public class PdfDirectorySource(string sourceDirectory, OpenAITextEmbeddingGenerationService embeddingService) : IIngestionSource
+public class PdfDirectorySource(string sourceDirectory, EmbeddingClient embeddingClient) : IIngestionSource
 {
     public static string SourceFileId(string path) => Path.GetFileName(path);
     public static string SourceFileVersion(string path) => File.GetLastWriteTimeUtc(path).ToString("o");
@@ -55,7 +54,7 @@ public class PdfDirectorySource(string sourceDirectory, OpenAITextEmbeddingGener
             DocumentId = document.DocumentId,
             PageNumber = p.PageNumber,
             Text = p.Text,
-            VectorData = embeddingService.GenerateEmbeddingAsync(p.Text).GetAwaiter().GetResult()
+            VectorData = embeddingClient.GenerateEmbeddingAsync(p.Text).GetAwaiter().GetResult().Value.ToFloats()
         }));
     }
 
