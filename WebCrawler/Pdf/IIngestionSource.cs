@@ -1,4 +1,6 @@
-﻿namespace Crawler.Pdf;
+﻿using RagUtils;
+
+namespace Crawler.Pdf;
 
 public interface IIngestionSource
 {

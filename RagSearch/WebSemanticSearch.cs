@@ -1,21 +1,17 @@
 ﻿using Microsoft.Extensions.VectorData;
-using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Microsoft.SemanticKernel.Connectors.Qdrant;
-using Microsoft.SemanticKernel.Embeddings;
+using MicrosoftAgentFramework.Utilities;
+using OpenAI.Embeddings;
 using Qdrant.Client;
 using RagUtils;
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 namespace RagSearch;
 
-public class WebSemanticSearch(string openAiApiKey)
+public class WebSemanticSearch()
 {
-    private readonly ITextEmbeddingGenerationService _embeddingService = new OpenAITextEmbeddingGenerationService(
-        modelId: "text-embedding-3-small",
-        apiKey: openAiApiKey
-    );
-
+    
+    private  readonly EmbeddingClient _embeddingClient = OpenAIClientProvider.GetOpenAIClient(OpenAI_LLM_Providers.OpenAI).GetEmbeddingClient("text-embedding-3-small");
+    
     private readonly VectorStore _vectorStore =
         new QdrantVectorStore(new QdrantClient("qdrant.pub.nadeemlari.in"), ownsClient: true);
 
@@ -24,12 +20,9 @@ public class WebSemanticSearch(string openAiApiKey)
         int topK = 5)
     {
         var collection = _vectorStore.GetCollection<ulong, WebPageChunk>("solenis_web_content");
-
-        // Generate embedding for the search query
-        var queryEmbedding = await _embeddingService.GenerateEmbeddingAsync(query);
-
-        // Perform vector search
-        var searchResults = collection.SearchAsync(queryEmbedding, 
+        var x = await _embeddingClient.GenerateEmbeddingAsync(query);
+        
+        var searchResults = collection.SearchAsync(x.Value.ToFloats(), 
             topK
            );
 

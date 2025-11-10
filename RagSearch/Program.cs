@@ -1,9 +1,10 @@
-﻿
+﻿using RagSearch;
 using Shared;
-var apiKey = Environment.GetEnvironmentVariable("OpenAI__ApiKey")??"your-api-key-here";
+
+
 DisplayUtil.WriteLineInformation("Web  Search - Web Semantic Search Example - Write Your Query");
 var query = Console.ReadLine();
-var webSearch = new RagSearch.WebSemanticSearch(apiKey);
+var webSearch = new WebSemanticSearch();
 var results = await webSearch.SearchAsync(query ?? string.Empty, topK: 5);
 
 DisplayUtil.Separator();
