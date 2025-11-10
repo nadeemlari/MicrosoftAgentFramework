@@ -2,7 +2,8 @@
 @using System.ComponentModel
 @inject IChatClient ChatClient
 @inject NavigationManager Nav
-@inject SemanticSearch Search
+@inject PdfSemanticSearch PdfSearch
+@inject WebSemanticSearch WebSearch
 @implements IDisposable
 
 <PageTitle>Chat</PageTitle>
@@ -12,9 +13,9 @@
 <ChatMessageList Messages="@messages" InProgressMessage="@currentResponseMessage">
     <NoMessagesContent>
         <div>To get started, try asking about these example documents. You can replace these with your own data and replace this message.</div>
-        <ChatCitation File="COR7 in Action.pdf"/>
-        <ChatCitation File="LX02 in Action.pdf"/>
-        <ChatCitation File="ZPTD_QC22 in Action.pdf"/>
+        <PdfChatCitation File="COR7 in Action.pdf"/>
+        <PdfChatCitation File="LX02 in Action.pdf"/>
+        <PdfChatCitation File="ZPTD_QC22 in Action.pdf"/>
         
     </NoMessagesContent>
 </ChatMessageList>
@@ -28,13 +29,16 @@
 @code {
     private const string SystemPrompt = @"
         You are an assistant who answers questions about information you retrieve.
-        Do not answer questions about anything else.
+        Do not answer questions about anything else from LLM,  only use associated tools to Reply.
+        Fisrt search for relevant information using tool called 'pdf' , if no search results are found,
+        then search using tool called 'web'.
         Use only simple markdown to format your responses.
 
         Use the search tool to find relevant information. When you do this, end your
-        reply with citations in the special XML format:
-
-        <citation filename='string' page_number='number'>exact quote here</citation>
+        reply with citations in the special XML format if serched from pdf:
+            <citation filename='string' page_number='number'>exact quote here</citation>
+        if its from web use:
+            <web url='string' title='string'>exact quote here</web>
 
         Always include the citation in your response if there are results.
 
@@ -54,7 +58,7 @@
     {
         statefulMessageCount = 0;
         messages.Add(new(ChatRole.System, SystemPrompt));
-        chatOptions.Tools = [AIFunctionFactory.Create(SearchAsync)];
+        chatOptions.Tools = [AIFunctionFactory.Create(SearchPdfAsync, name:"pdf"), AIFunctionFactory.Create(SearchWebAsync, name:"web")];
     }
 
     private async Task AddUserMessageAsync(ChatMessage userMessage)
@@ -109,14 +113,25 @@
     }
 
     [Description("Searches for information using a phrase or keyword")]
-    private async Task<IEnumerable<string>> SearchAsync(
+    private async Task<IEnumerable<string>> SearchPdfAsync(
         [Description("The phrase to search for.")] string searchPhrase,
         [Description("If possible, specify the filename to search that file only. If not provided or empty, the search includes all files.")] string? filenameFilter = null)
     {
         await InvokeAsync(StateHasChanged);
-        var results = await Search.SearchAsync(searchPhrase, filenameFilter, maxResults: 5);
+        var results = await PdfSearch.SearchAsync(searchPhrase, filenameFilter, maxResults: 5);
         return results.Select(result =>
             $"<result filename=\"{result.DocumentId}\" page_number=\"{result.PageNumber}\">{result.Text}</result>");
+    }
+    
+    [Description("Searches for information using a phrase or keyword")]
+    private async Task<IEnumerable<string>> SearchWebAsync(
+        [Description("The phrase to search for.")] string searchPhrase)
+        
+    {
+        await InvokeAsync(StateHasChanged);
+        var results = await WebSearch.SearchAsync(searchPhrase, string.Empty, maxResults: 5);
+        return results.Select(result =>
+            $"<result ulr=\"{result.Url}\"  title=\"{result.Title}\">{result.Content}</result>");
     }
 
     public void Dispose()

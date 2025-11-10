@@ -21,8 +21,10 @@ builder.Services.AddSingleton<QdrantClient>(_ => new QdrantClient("qdrant.pub.na
 builder.Services.AddQdrantVectorStore();
 builder.Services.AddQdrantCollection<ulong, IngestedPdfDocument>("solenis_pdf_doc_content");
 builder.Services.AddQdrantCollection<ulong, PdfChunk>("solenis_pdf_chunk_content");
+builder.Services.AddQdrantCollection<ulong, WebPageChunk>("solenis_web_content");
 
-builder.Services.AddSingleton<SemanticSearch>();
+builder.Services.AddSingleton<PdfSemanticSearch>();
+builder.Services.AddSingleton<WebSemanticSearch>();
 builder.Services.AddChatClient(chatClient).UseFunctionInvocation().UseLogging();
 builder.Services.AddEmbeddingGenerator(embeddingGenerator);
 

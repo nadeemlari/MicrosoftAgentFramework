@@ -3,7 +3,7 @@ using RagUtils;
 
 namespace ChatApp.Services;
 
-public class SemanticSearch(
+public class PdfSemanticSearch(
     VectorStoreCollection<ulong, PdfChunk> vectorCollection)
 {
     public async Task<IReadOnlyList<PdfChunk>> SearchAsync(string text, string? documentIdFilter, int maxResults)
