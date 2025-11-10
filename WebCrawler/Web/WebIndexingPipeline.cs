@@ -3,6 +3,7 @@ using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Microsoft.SemanticKernel.Connectors.Qdrant;
 using Microsoft.SemanticKernel.Embeddings;
 using Qdrant.Client;
+using RagUtils;
 using Shared;
 
 #pragma warning disable SKEXP0050
@@ -25,7 +26,7 @@ public class WebIndexingPipeline(string openAiApiKey)
         DisplayUtil.Separator();
        
         // Initialize crawler for this site
-        var crawler = new Crawler.Web.WebCrawler(siteUrl);
+        var crawler = new WebCrawler(siteUrl);
         
         // 1. Crawl the entire site
         var crawledPages = await crawler.CrawlSiteAsync();
@@ -84,9 +85,8 @@ public class WebIndexingPipeline(string openAiApiKey)
                 }
             }
         }
-        
-        
-        //Console.ReadLine();
+
+
         if (allRecords.Count != 0)
         {
             DisplayUtil.Separator();
