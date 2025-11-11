@@ -61,7 +61,8 @@ else if (Message.Role == ChatRole.Assistant)
 @code {
     private static readonly ConditionalWeakTable<ChatMessage, ChatMessageItem> SubscribersLookup = new();
     private static readonly Regex PdfCitationRegex = new(@"<citation filename='(?<file>[^']*)' page_number='(?<page>\d*)'>(?<quote>.*?)</citation>", RegexOptions.NonBacktracking);
-    private static readonly Regex WebCitationRegex = new(@"<web url='(?<url>[^']*)' title='(?<title>[^']*)'>(?<quote>.*?)</web>", RegexOptions.NonBacktracking);
+    private static readonly Regex WebCitationRegex1 = new(@"<web url='(?<url>[^']*)' title='(?<title>[^']*)'>(?<quote>.*?)</web>", RegexOptions.NonBacktracking);
+    private static readonly Regex WebCitationRegex2 = new(@"<citation url='(?<url>[^']*)' title='(?<title>[^']*)'>(?<quote>.*?)</citation>", RegexOptions.NonBacktracking);
 
     private List<(string File, int? Page, string Quote)>? pdfCitations;
     private List<(string Url, string Title, string Quote)>? webCitations;
@@ -97,9 +98,16 @@ else if (Message.Role == ChatRole.Assistant)
             ? pdfMatches.Select(m => (m.Groups["file"].Value, int.TryParse(m.Groups["page"].Value, out var page) ? page : (int?)null, m.Groups["quote"].Value)).ToList()
             : null;
 
-        var webMatches = WebCitationRegex.Matches(text);
+        var webMatches = WebCitationRegex1.Matches(text);
         webCitations = webMatches.Any()
             ? webMatches.Select(m => (m.Groups["url"].Value, m.Groups["title"].Value, m.Groups["quote"].Value)).ToList()
             : null;
+        if (webMatches.Count==0)
+        {
+            webMatches = WebCitationRegex2.Matches(text);
+            webCitations = webMatches.Any()
+                ? webMatches.Select(m => (m.Groups["url"].Value, m.Groups["title"].Value, m.Groups["quote"].Value)).ToList()
+                : null;
+        }
     }
 }

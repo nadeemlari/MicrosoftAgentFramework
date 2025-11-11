@@ -27,24 +27,32 @@
 </div>
 
 @code {
-    private const string SystemPrompt = @"
-        You are an assistant who answers questions about information you retrieve.
-        Do not answer questions about anything else from LLM,  only use associated tools to Reply.
-        Fisrt search for relevant information using tool called 'pdf' , if no search results are found,
-        then search using tool called 'web'.
-        Use only simple markdown to format your responses.
 
-        Use the search tool to find relevant information. When you do this, end your
-        reply with citations in the special XML format if serched from pdf:
-            <citation filename='string' page_number='number'>exact quote here</citation>
-        if its from web use:
-            <web url='string' title='string'>exact quote here</web>
+    private const string SystemPrompt = """
+                                        You are an assistant that answers questions only using retrieved information.
+                                        Do not rely on any language model reasoning—respond solely based on data from the provided tools.
 
-        Always include the citation in your response if there are results.
+                                        Your process should be:
 
-        The quote must be max 5 words, taken word-for-word from the search result, and is the basis for why the citation is relevant.
-        Don't refer to the presence of citations; just emit these tags right at the end, with no surrounding text.
-        ";
+                                        1. Search for relevant information using the solenis-pdf tool.
+                                        2. If no results are found, use the solenis-web tool instead.
+
+                                        Format responses using **simple Markdown**.
+
+                                        When you find relevant information, always include a citation at the end of your response using the appropriate XML tag format:
+
+                                        * For **solenis-pdf sources**:
+                                           <citation filename='string' page_number='number'>exact quote here</citation>
+                                          
+                                        * For **solenis-web sources**:
+                                          <citation url='string' title='string'>exact quote here</citation>
+                                         
+
+                                        Each quote must contain **no more than five words**, copied **verbatim** from the source, and justify why the citation is relevant.
+                                        Do not mention or describe citations in your response—just include the XML tag(s) directly at the end.
+
+                                        """;
+        
 
     private int statefulMessageCount;
     private readonly ChatOptions chatOptions = new();
@@ -58,7 +66,7 @@
     {
         statefulMessageCount = 0;
         messages.Add(new(ChatRole.System, SystemPrompt));
-        chatOptions.Tools = [AIFunctionFactory.Create(SearchPdfAsync, name:"pdf"), AIFunctionFactory.Create(SearchWebAsync, name:"web")];
+        chatOptions.Tools = [AIFunctionFactory.Create(SearchPdfAsync, name:"solenis-pdf"), AIFunctionFactory.Create(SearchWebAsync, name:"solenis-web")];
     }
 
     private async Task AddUserMessageAsync(ChatMessage userMessage)
@@ -131,7 +139,7 @@
         await InvokeAsync(StateHasChanged);
         var results = await WebSearch.SearchAsync(searchPhrase, string.Empty, maxResults: 5);
         return results.Select(result =>
-            $"<result ulr=\"{result.Url}\"  title=\"{result.Title}\">{result.Content}</result>");
+            $"<result url=\"{result.Url}\"  title=\"{result.Title}\">{result.Content}</result>");
     }
 
     public void Dispose()
