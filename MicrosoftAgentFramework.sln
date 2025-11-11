@@ -73,6 +73,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RagSearch", "RagSearch\RagS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RagUtils", "RagUtils\RagUtils.csproj", "{553CB6D5-B3B3-4A9D-90CA-B1004E13D5EB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Agent User Interaction (AG-UI)", "Agent User Interaction (AG-UI)", "{3005F2D3-0725-43BC-BE66-BB07C9985C3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentUserInteraction.Server", "AgentUserInteraction.Server\AgentUserInteraction.Server.csproj", "{DE89295C-1FC3-4257-820C-03C35ED0C7BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -183,6 +187,10 @@ Global
 		{553CB6D5-B3B3-4A9D-90CA-B1004E13D5EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{553CB6D5-B3B3-4A9D-90CA-B1004E13D5EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{553CB6D5-B3B3-4A9D-90CA-B1004E13D5EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE89295C-1FC3-4257-820C-03C35ED0C7BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE89295C-1FC3-4257-820C-03C35ED0C7BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE89295C-1FC3-4257-820C-03C35ED0C7BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE89295C-1FC3-4257-820C-03C35ED0C7BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -213,5 +221,6 @@ Global
 		{156D39DF-987C-4DB2-809E-94DD0379C338} = {22D6752A-EA1A-4B76-8125-77AC27A02149}
 		{B1E33757-87FF-48A2-8ED1-93FAB687723A} = {22D6752A-EA1A-4B76-8125-77AC27A02149}
 		{553CB6D5-B3B3-4A9D-90CA-B1004E13D5EB} = {22D6752A-EA1A-4B76-8125-77AC27A02149}
+		{DE89295C-1FC3-4257-820C-03C35ED0C7BF} = {3005F2D3-0725-43BC-BE66-BB07C9985C3B}
 	EndGlobalSection
 EndGlobal
