@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MicrosoftAgentFramework.Utilities;
 
 Console.Clear();
-var chatClient = AIChatClient.GetNonOpenAI(NonOpenAiProviders.Anthropic, "claude-3-haiku-20240307-2");
+var chatClient = AIChatClient.GetNonOpenAI(NonOpenAiProviders.Anthropic, "claude-haiku-4-5-20251001");
 var agent = chatClient.CreateAIAgent(tools: [AIFunctionFactory.Create(GetWeather, name: "get_weather")]);
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAGUI();
