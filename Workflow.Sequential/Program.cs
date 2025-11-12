@@ -12,7 +12,7 @@ const string model = "openai/gpt-4.1-mini";
 var client = AIChatClient.GetOpenAI(OpenAI_LLM_Providers.OpenRouter, model);
 var summaryAgent = client.CreateAIAgent(name: "SummaryAgent", instructions: "Summarize the text you are given to max 40 words");
 var translationAgent = client.CreateAIAgent(name: "TranslationAgent", instructions: "Translate summarize text to Hindi");
-var workflowAgent = await AgentWorkflowBuilder.BuildSequential(summaryAgent, translationAgent).AsAgentAsync();
+var workflowAgent =  AgentWorkflowBuilder.BuildSequential(summaryAgent, translationAgent).AsAgent();
 
 var legalText = """
                 This Legal Disclaimer (“Agreement”) governs the ownership, maintenance, and care of domesticated ducks 

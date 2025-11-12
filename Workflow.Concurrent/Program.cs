@@ -15,8 +15,8 @@ var spellCheckAgent = client.CreateAIAgent(
     instructions: "You are a spelling check expert (use max 200 chars)",
     name: "SpellCheckAgent"
 );
-var workflowAgent = await AgentWorkflowBuilder.BuildConcurrent([legalAgent, spellCheckAgent])
-    .AsAgentAsync();
+var workflowAgent =  AgentWorkflowBuilder.BuildConcurrent([legalAgent, spellCheckAgent])
+    .AsAgent();
 
 const string legalText = """
                          This Legal Disclaimer (“Agreement”) governs the ownership, maintenance, and care of domesticated ducks 

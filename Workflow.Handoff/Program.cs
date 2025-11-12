@@ -20,10 +20,10 @@ var musicNerd = client.CreateAIAgent(
     name: "MusicNerd",
     instructions: "You are a Music Nerd"
 );
-var workflowAgent = await AgentWorkflowBuilder.CreateHandoffBuilderWith(intentAgent)
+var workflowAgent = AgentWorkflowBuilder.CreateHandoffBuilderWith(intentAgent)
     .WithHandoffs(intentAgent, [movieNerd, musicNerd])
     .WithHandoffs([movieNerd, musicNerd], intentAgent)
-    .Build().AsAgentAsync();
+    .Build().AsAgent();
     
 Console.Write("> ");
 var userInput = Console.ReadLine();

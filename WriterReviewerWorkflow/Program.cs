@@ -23,9 +23,9 @@ var editorAgent  = client.CreateAIAgent(
     description: "An agent that edits  stories."
 );
 
-var workflowAgent = await AgentWorkflowBuilder
+var workflowAgent =  AgentWorkflowBuilder
     .BuildSequential(writerAgent, editorAgent)
-    .AsAgentAsync();
+    .AsAgent();
 
 DisplayUtil.LoadingTask();
 

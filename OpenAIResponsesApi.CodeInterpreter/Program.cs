@@ -42,9 +42,10 @@ foreach (var message in response.Messages)
             CollectionResult<ContainerFileResource> containerFileResources = containerClient.GetContainerFiles(containerId);
             foreach (var fileResource in containerFileResources)
             {
-                ClientResult<BinaryData> fileContent = await containerClient.GetContainerFileContentAsync(containerId, fileResource.Id);
+                //ClientResult<BinaryData> fileContent = await containerClient.GetContainerFileAsync(containerId, fileResource.Id);
+                //ClientResult<BinaryData> fileContent = await containerClient.GetContainerFileContentAsync(containerId, fileResource.Id);
                 var path = Path.Combine(Path.GetTempPath(), fileResource.Path.Replace("/", "_"));
-                await File.WriteAllBytesAsync(path, fileContent.Value.ToArray());
+                //await File.WriteAllBytesAsync(path, fileContent.Value.ToArray());
                 await Task.Factory.StartNew(() =>
                 {
                     System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
