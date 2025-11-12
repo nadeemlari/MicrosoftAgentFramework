@@ -57,7 +57,6 @@ while (true)
 
     DisplayUtil.Separator();
 }
-return;
 
 
 async ValueTask<object?> FunctionCallMiddleware(AIAgent callingAgent, FunctionInvocationContext context,
