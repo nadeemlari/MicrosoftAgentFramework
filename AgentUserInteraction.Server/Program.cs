@@ -5,8 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using MicrosoftAgentFramework.Utilities;
 
 Console.Clear();
-var chatClient = AIChatClient.GetNonOpenAI(NonOpenAiProviders.Anthropic, "claude-haiku-4-5-20251001");
-var agent = chatClient.CreateAIAgent(tools: [AIFunctionFactory.Create(GetWeather, name: "get_weather")]);
+const string model = "openai/gpt-4.1-mini";
+var chatClient = AIChatClient.GetOpenAI(OpenAI_LLM_Providers.OpenRouter, model);
+var agent = chatClient.AsIChatClient().CreateAIAgent(tools: [AIFunctionFactory.Create(GetWeather, name: "get_weather")]);
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAGUI();
 var app = builder.Build();
@@ -15,5 +16,5 @@ await app.RunAsync();
 return;
 static string GetWeather(string city)
 {
-    return "It is sunny and 19 degrees";
+    return $"It is sunny and 19 degrees in {city}";
 }

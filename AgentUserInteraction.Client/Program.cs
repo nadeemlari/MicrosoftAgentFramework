@@ -1,28 +1,25 @@
 ﻿using System.Text;
-using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.AGUI;
 using Microsoft.Extensions.AI;
 
 Console.Clear();
 var httpClient = new HttpClient();
-const string serverUrl = "http://localhost:5000";
+const string serverUrl = $"http://localhost:5000";
 var textColor = ConsoleColor.White;
 var chatClient = new AGUIChatClient(httpClient, serverUrl);
 var agent = chatClient.CreateAIAgent(tools: [AIFunctionFactory.Create(ChangeColor, name: "change_color")]);
 List<ChatMessage> messages = [new ChatMessage(ChatRole.System, "You are a nice AI Agent")];
 while (true)
 {
-    Console.Write("User > ");
+    Console.Write("\nUser > ");
     var message = Console.ReadLine() ?? string.Empty;
     if (message == string.Empty)
     {
         continue;
     }
     messages.Add(new ChatMessage(ChatRole.User, message));
-    List<AgentRunResponseUpdate> updates = [];
     await foreach (var update in agent.RunStreamingAsync(messages))
     {
-        updates.Add(update);
         foreach (var content in update.Contents)
         {
             switch (content)
@@ -62,7 +59,6 @@ while (true)
     }
 }
 
-return;
 void ChangeColor(ConsoleColor color)
 {
     textColor = color;
