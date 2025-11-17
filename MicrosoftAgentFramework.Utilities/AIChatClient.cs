@@ -67,7 +67,11 @@ public static class AIChatClient
                 var apiKey = Environment.GetEnvironmentVariable("ANTHROPIC_API_KEY") ??
                              throw new InvalidOperationException(
                                  "Please set the OPENROUTER_API_KEY environment variable.");
-                var client = new AnthropicClient(apiKey).Messages.AsBuilder().Build();
+                var client = new AnthropicClient(apiKey).
+                    Messages.
+                    AsBuilder().
+                    UseFunctionInvocation()
+                    .Build();
                 return client;
             }
 
