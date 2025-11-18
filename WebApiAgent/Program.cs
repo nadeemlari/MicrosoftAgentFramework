@@ -1,38 +1,20 @@
-using System.ClientModel;
 using System.ComponentModel;
-using Anthropic.SDK.Constants;
 using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.DevUI;
 using Microsoft.Agents.AI.Hosting;
 using Microsoft.Agents.AI.Workflows;
 using Microsoft.Extensions.AI;
 using MicrosoftAgentFramework.Utilities;
-using OpenAI.Chat;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// You will need to set the API key to your own value
-// You can do this using Visual Studio's "Manage User Secrets" UI, or on the command line:
-//   cd this-project-directory
-//   dotnet user-secrets set "OPENAI_KEY" "your-openai-api-key-here"
-
-// var chatClient = new ChatClient(
-//         "gpt-4o-mini",
-//         new ApiKeyCredential(builder.Configuration["OPENAI_KEY"] ?? throw new InvalidOperationException("Missing configuration: OPENAI_KEY")))
-//     .AsIChatClient();
-
-var chatClient = AIChatClient.GetNonOpenAI(NonOpenAiProviders.Anthropic, AnthropicModels.Claude35Haiku);
-var chatClientAgentRunOptions = new ChatClientAgentRunOptions( new ChatOptions
-{
-    ModelId = AnthropicModels.Claude35Haiku,
-    MaxOutputTokens = 1000
-});
+var chatClient = AIChatClient.GetOpenAI(OpenAI_LLM_Providers.OpenAI, "gpt-4o-mini").AsIChatClient();
 
 builder.Services.AddChatClient(chatClient);
 
 builder.AddAIAgent("writer", "You write short stories (300 words or less) about the specified topic.");
 
-builder.AddAIAgent("editor", (sp, key) => new ChatClientAgent(
+builder.AddAIAgent("editor", (_, key) => new ChatClientAgent(
     chatClient,
     name: key,
     instructions: "You edit short stories to improve grammar and style, ensuring the stories are less than 300 words. Once finished editing, you select a title and format the story for publishing.",
@@ -62,7 +44,7 @@ if (builder.Environment.IsDevelopment())
     app.MapDevUI();
 }
 
-app.Run();
+await app.RunAsync();
 
 [Description("Formats the story for publication, revealing its title.")]
 string FormatStory(string title, string story) => $"""
