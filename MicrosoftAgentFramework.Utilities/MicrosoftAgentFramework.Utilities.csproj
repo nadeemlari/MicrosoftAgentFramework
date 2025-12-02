@@ -8,14 +8,14 @@
 
     <ItemGroup>
       <PackageReference Include="Anthropic.SDK" Version="5.8.0" />
-      <PackageReference Include="Azure.AI.OpenAI" Version="2.5.0-beta.1" />
-      <PackageReference Include="Azure.Identity" Version="1.17.0" />
+      <PackageReference Include="Azure.AI.OpenAI" Version="2.7.0-beta.2" />
+      <PackageReference Include="Azure.Identity" Version="1.18.0-beta.2" />
       <PackageReference Include="Google_GenerativeAI.Microsoft" Version="3.4.1" />
-      <PackageReference Include="Microsoft.Agents.AI" Version="1.0.0-preview.251110.2" />
-      <PackageReference Include="Microsoft.Extensions.AI" Version="10.0.0" />
-      <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.0.0-preview.1.25560.10" />
+      <PackageReference Include="Microsoft.Agents.AI" Version="1.0.0-preview.251125.1" />
+      <PackageReference Include="Microsoft.Extensions.AI" Version="10.0.1" />
+      <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.0.1-preview.1.25571.5" />
       <PackageReference Include="Microsoft.SemanticKernel.Connectors.InMemory" Version="1.67.1-preview" />
-      <PackageReference Include="OpenAI" Version="2.6.0" />
+      <PackageReference Include="OpenAI" Version="2.7.0" />
     </ItemGroup>
 
 </Project>
