@@ -1,13 +1,15 @@
 ﻿using System.ClientModel;
+using Azure.AI.OpenAI;
+using Azure.Identity;
 using NAudio.Utils;
 using NAudio.Wave;
 using OpenAI;
 using OpenAI.Audio;
 using Shared;
 
-var apiKey = Environment.GetEnvironmentVariable("OpenAI__ApiKey") ;
-var client = new OpenAIClient(apiKey);
-var audioClient = client.GetAudioClient("gpt-4o-mini-tts");
+const string endpoint = "https://nad-openai-azure.openai.azure.com/";
+var client = new AzureOpenAIClient(new Uri(endpoint), new AzureCliCredential());
+var audioClient = client.GetAudioClient("whisper");
 var agent = client
     .GetChatClient("gpt-4.1-mini")
     .CreateAIAgent(instructions: "You are a Friendly AI Bot, answering questions");
