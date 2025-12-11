@@ -95,6 +95,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeechToText", "SpeechToTex
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Image Generation", "Image Generation", "{C645ED4F-9ED1-48E6-937C-44063A6B5CDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageGeneration.OpenAi", "ImageGeneration.OpenAi\ImageGeneration.OpenAi.csproj", "{FA868241-4099-436D-8B67-9318F7D61E67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -229,6 +231,10 @@ Global
 		{CC8D0105-1F1C-45B3-BA9E-F64CC7E85E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC8D0105-1F1C-45B3-BA9E-F64CC7E85E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC8D0105-1F1C-45B3-BA9E-F64CC7E85E85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA868241-4099-436D-8B67-9318F7D61E67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA868241-4099-436D-8B67-9318F7D61E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA868241-4099-436D-8B67-9318F7D61E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA868241-4099-436D-8B67-9318F7D61E67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -265,6 +271,7 @@ Global
 		{EF21CC1C-3C41-45C9-B11A-74D864AD61AF} = {193E04D7-1DA3-4CB3-BBBB-875B7905E1C9}
 		{D5789F98-433F-4AF3-8B77-FBAB9A0E8BF7} = {187345BA-D98B-4EB5-B906-2C7A2D215856}
 		{CC8D0105-1F1C-45B3-BA9E-F64CC7E85E85} = {187345BA-D98B-4EB5-B906-2C7A2D215856}
+		{FA868241-4099-436D-8B67-9318F7D61E67} = {C645ED4F-9ED1-48E6-937C-44063A6B5CDC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A31CD957-F724-4DE1-B5C8-7168B3BDA7DF}

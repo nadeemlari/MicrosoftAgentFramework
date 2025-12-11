@@ -6,7 +6,7 @@ using Shared;
 // const string model = "provider-3/gpt-4o-mini";
 const string model = "openai/gpt-4o-mini";
 // const string model = "provider-3/gpt-4o-mini";
-var client = AIChatClient.GetOpenAI(OpenAI_LLM_Providers.OpenRouter, model);
+var client = AIChatClientProvider.GetOpenAI(OpenAI_LLM_Providers.OpenRouter, model);
 
 var intentAgent = client.CreateAIAgent(
     name: "IntentAgent",

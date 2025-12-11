@@ -9,7 +9,7 @@ using Shared;
 
 // const string model = "openai/gpt-5.1-mini";
 const string model = "gpt-5.1-mini";
-var client = AIChatClient.GetOpenAI(OpenAI_LLM_Providers.AzureOpenAI, model);
+var client = AIChatClientProvider.GetOpenAI(OpenAI_LLM_Providers.AzureOpenAI, model);
 var agent = client.CreateAIAgent(new ChatClientAgentOptions
 {
     ChatOptions = new ChatOptions

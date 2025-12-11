@@ -8,7 +8,7 @@ using MicrosoftAgentFramework.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var chatClient = AIChatClient.GetOpenAI(OpenAI_LLM_Providers.OpenAI, "gpt-4o-mini").AsIChatClient();
+var chatClient = AIChatClientProvider.GetOpenAI(OpenAI_LLM_Providers.OpenAI, "gpt-4o-mini").AsIChatClient();
 
 builder.Services.AddChatClient(chatClient);
 

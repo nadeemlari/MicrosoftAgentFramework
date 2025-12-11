@@ -3,7 +3,7 @@ using OpenAI;
 using Shared;
 
 const string model = "GPT-4.1-mini";
-var client = AIChatClient.GetOpenAI(OpenAI_LLM_Providers.AzureOpenAI, model);
+var client = AIChatClientProvider.GetOpenAI(OpenAI_LLM_Providers.AzureOpenAI, model);
 var agent= client.CreateAIAgent();
 var response = await agent.RunAsync("What is the Capital of France?");
 DisplayUtil.Separator();

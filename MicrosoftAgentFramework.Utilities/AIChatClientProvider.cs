@@ -11,16 +11,19 @@ using OpenAI.Chat;
 
 namespace MicrosoftAgentFramework.Utilities;
 
-public static class AIChatClient
+public static class AIChatClientProvider
 {
     public static ChatClient GetOpenAI(OpenAI_LLM_Providers provider, string model)
     {
+        const string openRouterEndpoint = "https://openrouter.ai/api/v1";
+        const string azureOpenAiEndpoint = "https://nad-openai-azure.openai.azure.com/";
+        const string a4fEndpoint = "https://api.a4f.co/v1";
         switch (provider)
         {
             case OpenAI_LLM_Providers.AzureOpenAI:
             {
-                const string endpoint = "https://nad-openai-azure.openai.azure.com/";
-                var client = new AzureOpenAIClient(new Uri(endpoint), new AzureCliCredential());
+               
+                var client = new AzureOpenAIClient(new Uri(azureOpenAiEndpoint), new AzureCliCredential());
                 return client.GetChatClient(model);
             }
             case OpenAI_LLM_Providers.OpenAI:
@@ -35,10 +38,10 @@ public static class AIChatClient
             {
                 var apiKey = Environment.GetEnvironmentVariable("OPENROUTER_API_KEY") ??
                              throw new InvalidOperationException(
-                                 "Please set the OPENROUTER_API_KEY environment variable.");
+                                 $"Please set the OPENROUTER_API_KEY environment variable.");
                 var client = new OpenAIClient(new ApiKeyCredential(apiKey), new OpenAIClientOptions
                 {
-                    Endpoint = new Uri("https://openrouter.ai/api/v1")
+                    Endpoint = new Uri(openRouterEndpoint)
                 });
                 return client.GetChatClient(model);
             }
@@ -49,7 +52,7 @@ public static class AIChatClient
                                  "Please set the OPENROUTER_API_KEY environment variable.");
                 var client = new OpenAIClient(new ApiKeyCredential(apiKey), new OpenAIClientOptions
                 {
-                    Endpoint = new Uri("https://api.a4f.co/v1")
+                    Endpoint = new Uri(a4fEndpoint)
                 });
                 return client.GetChatClient(model);
             }

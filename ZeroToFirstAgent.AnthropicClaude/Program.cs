@@ -5,7 +5,7 @@ using MicrosoftAgentFramework.Utilities;
 using Shared;
 
 const string model = AnthropicModels.Claude3Haiku;
-var client = AIChatClient.GetNonOpenAI(NonOpenAiProviders.Anthropic, model);
+var client = AIChatClientProvider.GetNonOpenAI(NonOpenAiProviders.Anthropic, model);
 var chatClientAgentRunOptions = new ChatClientAgentRunOptions( new ChatOptions
 {
     ModelId = model,

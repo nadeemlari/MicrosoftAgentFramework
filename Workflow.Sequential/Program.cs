@@ -9,7 +9,7 @@ const string model = "openai/gpt-4.1-mini";
 // const string model = "tencent/hunyuan-a13b-instruct";
 // const string model = "openai/gpt-4o-mini";
 
-var client = AIChatClient.GetOpenAI(OpenAI_LLM_Providers.OpenRouter, model);
+var client = AIChatClientProvider.GetOpenAI(OpenAI_LLM_Providers.OpenRouter, model);
 var summaryAgent = client.CreateAIAgent(name: "SummaryAgent", instructions: "Summarize the text you are given to max 40 words");
 var translationAgent = client.CreateAIAgent(name: "TranslationAgent", instructions: "Translate summarize text to Hindi");
 var workflowAgent =  AgentWorkflowBuilder.BuildSequential(summaryAgent, translationAgent).AsAgent();

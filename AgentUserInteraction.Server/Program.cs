@@ -9,7 +9,7 @@ Console.Clear();
 const string model = "openai/gpt-4.1-mini";
 
 // Initialize AI chat client with error handling
-var chatClient = AIChatClient.GetOpenAI(OpenAI_LLM_Providers.OpenRouter, model)
+var chatClient = AIChatClientProvider.GetOpenAI(OpenAI_LLM_Providers.OpenRouter, model)
     ?? throw new InvalidOperationException("Failed to initialize AIChatClient.");
 
 // Create agent with weather tool

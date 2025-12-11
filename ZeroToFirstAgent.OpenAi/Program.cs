@@ -4,7 +4,7 @@ using OpenAI;
 using Shared;
 
 const string model = "gpt-4.1-mini";
-var client = AIChatClient.GetOpenAI(OpenAI_LLM_Providers.OpenAI, model);
+var client = AIChatClientProvider.GetOpenAI(OpenAI_LLM_Providers.OpenAI, model);
 var agent = client.CreateAIAgent();
 var response = await agent.RunAsync("What is the capital of Germany?");
 DisplayUtil.Separator();
