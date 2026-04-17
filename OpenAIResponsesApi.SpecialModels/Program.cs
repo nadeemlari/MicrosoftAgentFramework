@@ -1,5 +1,5 @@
 ﻿using Microsoft.Agents.AI;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 using OpenAI;
 
 const string model = "gpt-5-codex";

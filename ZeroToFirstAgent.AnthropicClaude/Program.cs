@@ -1,7 +1,7 @@
 ﻿using Anthropic.SDK.Constants;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 
 const string model = AnthropicModels.Claude3Haiku;
 var client = AIChatClientProvider.GetNonOpenAI(NonOpenAiProviders.Anthropic, model);

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.VectorData;
 using Microsoft.SemanticKernel.Connectors.Qdrant;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 using OpenAI.Embeddings;
 using Qdrant.Client;
 using RagUtils;

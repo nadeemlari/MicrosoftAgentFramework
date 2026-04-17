@@ -1,6 +1,6 @@
 ﻿using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 using OpenAI;
 
 const string model = "openai/gpt-4.1";

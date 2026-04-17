@@ -1,5 +1,5 @@
 ﻿using Microsoft.Agents.AI.Workflows;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 using OpenAI;
 
 // const string model = "openai/gpt-4.1-mini";

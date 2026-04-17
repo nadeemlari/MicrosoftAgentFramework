@@ -1,6 +1,6 @@
 ﻿using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 using OpenAI;
 using OpenAI.Responses;
 

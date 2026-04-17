@@ -3,7 +3,7 @@
 using System.ClientModel;
 using OpenAI;
 
-namespace MicrosoftAgentFramework.Utilities;
+namespace Utilities;
 
 public class OpenAIClientProvider
 {

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using Microsoft.SemanticKernel.Connectors.InMemory;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 using UsingRAGInAgentFramework.Models;
 
 var jsonWithMovies = await File.ReadAllTextAsync("made_up_movies.json");

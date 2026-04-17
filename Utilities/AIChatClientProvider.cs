@@ -9,7 +9,7 @@ using Microsoft.Extensions.AI;
 using OpenAI;
 using OpenAI.Chat;
 
-namespace MicrosoftAgentFramework.Utilities;
+namespace Utilities;
 
 public static class AIChatClientProvider
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.AI;
 
-namespace MicrosoftAgentFramework.Utilities.Extensions;
+namespace Utilities.Extensions;
 
 public static class UsageDetailsExtensions
 {

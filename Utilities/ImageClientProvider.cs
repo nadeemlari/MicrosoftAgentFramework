@@ -4,7 +4,7 @@ using Azure.Identity;
 using OpenAI;
 using OpenAI.Images;
 
-namespace MicrosoftAgentFramework.Utilities;
+namespace Utilities;
 
 public class ImageClientProvider
 {

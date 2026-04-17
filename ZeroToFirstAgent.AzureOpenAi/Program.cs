@@ -1,4 +1,4 @@
-﻿using MicrosoftAgentFramework.Utilities;
+﻿using Utilities;
 using OpenAI;
 
 const string model = "GPT-4.1-mini";

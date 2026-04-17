@@ -1,4 +1,4 @@
-﻿namespace MicrosoftAgentFramework.Utilities;
+﻿namespace Utilities;
 
 public static class DisplayUtil
 {

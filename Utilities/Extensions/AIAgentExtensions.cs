@@ -5,7 +5,7 @@ using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 // ReSharper disable InconsistentNaming
 
-namespace MicrosoftAgentFramework.Utilities.Extensions;
+namespace Utilities.Extensions;
 
 public static class AIAgentExtensions
 {

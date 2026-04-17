@@ -1,6 +1,6 @@
 ﻿using GenerativeAI;
 using Microsoft.Agents.AI;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 
 const string model = GoogleAIModels.Gemini2Flash;        
 var client = AIChatClientProvider.GetNonOpenAI( NonOpenAiProviders.Gemini, model);

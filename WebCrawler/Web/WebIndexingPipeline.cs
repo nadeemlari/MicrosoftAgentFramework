@@ -2,7 +2,7 @@
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Microsoft.SemanticKernel.Connectors.Qdrant;
 using Microsoft.SemanticKernel.Embeddings;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 using Qdrant.Client;
 using RagUtils;
 

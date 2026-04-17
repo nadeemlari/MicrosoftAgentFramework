@@ -9,15 +9,15 @@
 
     <ItemGroup>
       <PackageReference Include="HtmlAgilityPack" Version="1.12.4" />
-      <PackageReference Include="Microsoft.Extensions.VectorData.Abstractions" Version="9.7.0" />
-      <PackageReference Include="Microsoft.SemanticKernel.Connectors.InMemory" Version="1.67.1-preview" />
-      <PackageReference Include="Microsoft.SemanticKernel.Connectors.OpenAI" Version="1.67.1" />
-      <PackageReference Include="Microsoft.SemanticKernel.Connectors.Qdrant" Version="1.67.1-preview" />
-      <PackageReference Include="PdfPig" Version="0.1.13-alpha-20251124-ce563" />
+      <PackageReference Include="Microsoft.Extensions.VectorData.Abstractions" Version="10.5.0" />
+      <PackageReference Include="Microsoft.SemanticKernel.Connectors.InMemory" Version="1.74.0-preview" />
+      <PackageReference Include="Microsoft.SemanticKernel.Connectors.OpenAI" Version="1.74.0" />
+      <PackageReference Include="Microsoft.SemanticKernel.Connectors.Qdrant" Version="1.74.0-preview" />
+      <PackageReference Include="PdfPig" Version="0.1.15-alpha-20260328-e5c04" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MicrosoftAgentFramework.Utilities\MicrosoftAgentFramework.Utilities.csproj" />
+      <ProjectReference Include="..\Utilities\Utilities.csproj" />
       <ProjectReference Include="..\RagUtils\RagUtils.csproj" />
     </ItemGroup>
 

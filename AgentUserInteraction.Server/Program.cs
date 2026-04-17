@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.DependencyInjection;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 
 Console.Clear();
 

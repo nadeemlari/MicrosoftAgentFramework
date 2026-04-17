@@ -2,7 +2,7 @@
 using System.Text;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 using OpenAI;
 using ToolCalling.Advanced.Tools;
 

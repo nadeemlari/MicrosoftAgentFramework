@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.AI;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 using OpenAI;
 using ToolCalling.Basics;
 

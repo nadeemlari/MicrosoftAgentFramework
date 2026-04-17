@@ -6,7 +6,7 @@ using OpenAI.Responses;
 
 #pragma warning disable OPENAI001
 
-namespace MicrosoftAgentFramework.Utilities;
+namespace Utilities;
 
 public static class AIResponseClientProvider
 {

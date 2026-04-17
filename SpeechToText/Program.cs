@@ -1,7 +1,7 @@
 ﻿using System.ClientModel;
 using Azure.AI.OpenAI;
 using Azure.Identity;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 using NAudio.Utils;
 using NAudio.Wave;
 using OpenAI;

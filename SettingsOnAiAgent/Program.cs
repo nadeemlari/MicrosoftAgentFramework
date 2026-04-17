@@ -3,7 +3,7 @@ using Microsoft.Extensions.AI;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 using OpenAI;
 using OpenAI.Chat;
 using OpenTelemetry;

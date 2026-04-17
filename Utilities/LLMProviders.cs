@@ -1,6 +1,6 @@
 ﻿// ReSharper disable InconsistentNaming
 
-namespace MicrosoftAgentFramework.Utilities;
+namespace Utilities;
 
 public enum OpenAI_LLM_Providers
 {

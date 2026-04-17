@@ -1,6 +1,6 @@
 ﻿using System.ClientModel;
 using Microsoft.Extensions.AI;
-using MicrosoftAgentFramework.Utilities;
+using Utilities;
 using OpenAI;
 using OpenAI.Containers;
 using OpenAI.Responses;
