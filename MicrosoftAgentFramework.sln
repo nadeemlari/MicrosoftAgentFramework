@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ZeroToFirstAgent", "ZeroToF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroToFirstAgent.AnthropicClaude", "ZeroToFirstAgent.AnthropicClaude\ZeroToFirstAgent.AnthropicClaude.csproj", "{28AC948C-59E7-41F6-8081-7560FD713725}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{D7241987-03FE-4AA9-A82D-280269FB5EC1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroToFirstAgent.GoogleGemini", "ZeroToFirstAgent.GoogleGemini\ZeroToFirstAgent.GoogleGemini.csproj", "{52512860-8453-48AE-B556-1C9921053C9D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroToFirstAgent.AzureOpenAi", "ZeroToFirstAgent.AzureOpenAi\ZeroToFirstAgent.AzureOpenAi.csproj", "{4C611F2B-C1D8-433B-A41B-D6BF68B61D2F}"
@@ -111,10 +109,6 @@ Global
 		{28AC948C-59E7-41F6-8081-7560FD713725}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28AC948C-59E7-41F6-8081-7560FD713725}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28AC948C-59E7-41F6-8081-7560FD713725}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7241987-03FE-4AA9-A82D-280269FB5EC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7241987-03FE-4AA9-A82D-280269FB5EC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7241987-03FE-4AA9-A82D-280269FB5EC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7241987-03FE-4AA9-A82D-280269FB5EC1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52512860-8453-48AE-B556-1C9921053C9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{52512860-8453-48AE-B556-1C9921053C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52512860-8453-48AE-B556-1C9921053C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU

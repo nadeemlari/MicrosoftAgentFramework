@@ -14,16 +14,16 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Shared\Shared.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Update="SampleData\catan_rules.pdf">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
       <None Update="SampleData\Image.jpg">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MicrosoftAgentFramework.Utilities\MicrosoftAgentFramework.Utilities.csproj" />
     </ItemGroup>
 
 </Project>

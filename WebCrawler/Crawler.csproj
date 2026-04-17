@@ -17,8 +17,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\MicrosoftAgentFramework.Utilities\MicrosoftAgentFramework.Utilities.csproj" />
       <ProjectReference Include="..\RagUtils\RagUtils.csproj" />
-      <ProjectReference Include="..\Shared\Shared.csproj" />
     </ItemGroup>
 
 </Project>
