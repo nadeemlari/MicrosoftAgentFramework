@@ -1,7 +1,6 @@
 ﻿using Microsoft.Agents.AI.Workflows;
 using MicrosoftAgentFramework.Utilities;
 using OpenAI;
-using Shared;
 
 // const string model = "provider-3/gpt-4o-mini";
 const string model = "openai/gpt-4o-mini";

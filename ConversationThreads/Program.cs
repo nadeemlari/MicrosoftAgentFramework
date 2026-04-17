@@ -4,8 +4,8 @@ using ConversationThreads;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using Microsoft.VisualBasic.CompilerServices;
+using MicrosoftAgentFramework.Utilities;
 using OpenAI;
-using Shared;
 
 var client = new AzureOpenAIClient(new Uri("https://nad-openai-azure.openai.azure.com/"), new AzureCliCredential());
 var agent= client.GetChatClient("GPT-4.1-mini").CreateAIAgent("You are a Friendly AI Bot, answering questions");

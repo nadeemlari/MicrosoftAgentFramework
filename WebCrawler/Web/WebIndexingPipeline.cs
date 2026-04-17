@@ -2,9 +2,10 @@
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Microsoft.SemanticKernel.Connectors.Qdrant;
 using Microsoft.SemanticKernel.Embeddings;
+using MicrosoftAgentFramework.Utilities;
 using Qdrant.Client;
 using RagUtils;
-using Shared;
+
 
 #pragma warning disable SKEXP0050
 #pragma warning disable CS0618 // Type or member is obsolete

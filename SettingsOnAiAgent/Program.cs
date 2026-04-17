@@ -8,7 +8,6 @@ using OpenAI;
 using OpenAI.Chat;
 using OpenTelemetry;
 using OpenTelemetry.Trace;
-using Shared;
 
 #pragma warning disable OPENAI001
 

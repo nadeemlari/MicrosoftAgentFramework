@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.AI;
 using MicrosoftAgentFramework.Utilities;
 using OpenAI;
-using Shared;
 using ToolCalling.Basics;
 
 // const string model = "openai/gpt-4.1-mini";

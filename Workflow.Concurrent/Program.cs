@@ -1,7 +1,6 @@
 ﻿using Microsoft.Agents.AI.Workflows;
 using MicrosoftAgentFramework.Utilities;
 using OpenAI;
-using Shared;
 
 // const string model = "openai/gpt-4.1-mini";
 const string model = "deepseek/deepseek-v3.2-exp";

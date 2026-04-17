@@ -14,4 +14,8 @@
       <ProjectReference Include="..\MicrosoftAgentFramework.Utilities\MicrosoftAgentFramework.Utilities.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Extensions\" />
+    </ItemGroup>
+
 </Project>

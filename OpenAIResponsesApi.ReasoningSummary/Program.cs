@@ -3,7 +3,7 @@ using Microsoft.Extensions.AI;
 using MicrosoftAgentFramework.Utilities;
 using OpenAI;
 using OpenAI.Responses;
-using Shared;
+
 
 #pragma warning disable OPENAI001
 

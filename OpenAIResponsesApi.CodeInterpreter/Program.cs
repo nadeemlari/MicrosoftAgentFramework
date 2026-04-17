@@ -4,7 +4,6 @@ using MicrosoftAgentFramework.Utilities;
 using OpenAI;
 using OpenAI.Containers;
 using OpenAI.Responses;
-using Shared;
 #pragma warning disable OPENAI001
 
 // const string model = "openai/gpt-4.1";

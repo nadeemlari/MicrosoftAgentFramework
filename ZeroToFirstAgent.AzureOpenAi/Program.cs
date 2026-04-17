@@ -1,6 +1,5 @@
 ﻿using MicrosoftAgentFramework.Utilities;
 using OpenAI;
-using Shared;
 
 const string model = "GPT-4.1-mini";
 var client = AIChatClientProvider.GetOpenAI(OpenAI_LLM_Providers.AzureOpenAI, model);

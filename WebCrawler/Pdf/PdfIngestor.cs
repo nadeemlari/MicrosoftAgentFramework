@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.VectorData;
+using MicrosoftAgentFramework.Utilities;
 using RagUtils;
-using Shared;
+
 
 namespace Crawler.Pdf;
 

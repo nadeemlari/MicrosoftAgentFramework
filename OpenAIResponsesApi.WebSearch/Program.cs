@@ -2,7 +2,6 @@
 using Microsoft.Extensions.AI;
 using MicrosoftAgentFramework.Utilities;
 using OpenAI;
-using Shared.Extensions;
 
 const string model = "openai/gpt-4.1";
 // const string model = "gpt-4.1";

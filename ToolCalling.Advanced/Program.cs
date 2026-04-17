@@ -4,7 +4,6 @@ using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using MicrosoftAgentFramework.Utilities;
 using OpenAI;
-using Shared;
 using ToolCalling.Advanced.Tools;
 
 #pragma warning disable MEAI001

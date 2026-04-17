@@ -1,7 +1,6 @@
 ﻿using Microsoft.Agents.AI;
 using MicrosoftAgentFramework.Utilities;
 using OpenAI;
-using Shared.Extensions;
 
 const string model = "gpt-5-codex";
 var agent = AIResponseClientProvider

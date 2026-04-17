@@ -1,7 +1,7 @@
 ﻿using Microsoft.Agents.AI;
 using MicrosoftAgentFramework.Utilities;
 using OpenAI;
-using Shared;
+
 
 var agent = AIChatClientProvider.GetOpenAI(OpenAI_LLM_Providers.OpenRouter, "gpt-4.1-mini").CreateAIAgent();
 var response = await agent.RunAsync("What is the capital of Germany?");

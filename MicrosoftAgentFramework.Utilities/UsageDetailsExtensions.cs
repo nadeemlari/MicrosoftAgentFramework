@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.AI;
 using MicrosoftAgentFramework.Utilities.Extensions;
 
-namespace Shared.Extensions;
+namespace MicrosoftAgentFramework.Utilities;
 
 public static class UsageDetailsExtensions
 {

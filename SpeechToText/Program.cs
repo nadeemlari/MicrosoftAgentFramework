@@ -1,11 +1,12 @@
 ﻿using System.ClientModel;
 using Azure.AI.OpenAI;
 using Azure.Identity;
+using MicrosoftAgentFramework.Utilities;
 using NAudio.Utils;
 using NAudio.Wave;
 using OpenAI;
 using OpenAI.Audio;
-using Shared;
+
 
 const string endpoint = "https://nad-openai-azure.openai.azure.com/";
 var client = new AzureOpenAIClient(new Uri(endpoint), new AzureCliCredential());

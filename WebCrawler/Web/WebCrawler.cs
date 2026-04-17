@@ -1,6 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using HtmlAgilityPack;
-using Shared;
+using MicrosoftAgentFramework.Utilities;
+
 
 namespace Crawler.Web;
 

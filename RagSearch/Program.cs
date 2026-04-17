@@ -1,5 +1,5 @@
-﻿using RagSearch;
-using Shared;
+﻿using MicrosoftAgentFramework.Utilities;
+using RagSearch;
 
 
 // DisplayUtil.WriteLineInformation("Web  Search - Web Semantic Search Example - Write Your Query");
